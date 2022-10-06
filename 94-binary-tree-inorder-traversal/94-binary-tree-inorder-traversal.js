@@ -13,14 +13,11 @@
 var inorderTraversal = function(root) {
     const result = [];
     const traversal = (node) => {
-        if (!node) return;
-        if (node.left !== null) {
+        if (node) {
             traversal(node.left);
-        }
-        if (node.val !== null) {
-            result.push(node.val);
-        }
-        traversal(node.right);
+            node.val !== null && result.push(node.val);
+            traversal(node.right);
+        }        
     }
     traversal(root);
     return result;
