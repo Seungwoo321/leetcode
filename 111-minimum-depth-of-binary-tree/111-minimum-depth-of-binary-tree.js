@@ -26,10 +26,10 @@ var minDepth = function (root) {
             q.push([node.left, level + 1]);
         }
         if (node.right) {
-            q.push([node.right, level + 1])
+            q.push([node.right, level + 1]);
         }
         if (node && (!node.left && !node.right)) {
-            return level
+            return level;
         }
     }
 };
