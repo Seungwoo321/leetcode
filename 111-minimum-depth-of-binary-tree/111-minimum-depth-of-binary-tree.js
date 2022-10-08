@@ -19,20 +19,19 @@
 // };
 var minDepth = function (root) {
     if (!root) return 0;
-    const q = [[root, 1]];
-    while (q.length) {
-        const len = q.length;
-        for (let i = 0; i < len; i ++ ) {
-            const [node, level] = q.shift();
-            if (node.left) {
-                q.push([node.left, level + 1]);
-            }
-            if (node.right) {
-                q.push([node.right, level + 1]);
-            }
-            if (node && (!node.left && !node.right)) {
-                return level;
-            }
+    const stack = [[root, 1]];
+    let depth = [];
+    while (stack.length) {
+        const [node, level] = stack.shift();
+        if (node.left) {
+            stack.unshift([node.left, level + 1]);
         }
+        if (node.right) {
+            stack.unshift([node.right, level + 1])
+        }
+        if (node && (!node.left && !node.right)) {
+            depth.push(level);
+        } 
     }
+    return Math.min.apply(null, depth);
 };
