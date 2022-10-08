@@ -21,7 +21,7 @@ var minDepth = function (root) {
     if (!root) return 0;
     const q = [[root, 1]];
     while (q.length) {
-        const len = q.length
+        const len = q.length;
         for (let i = 0; i < len; i ++ ) {
             const [node, level] = q.shift();
             if (node.left) {
