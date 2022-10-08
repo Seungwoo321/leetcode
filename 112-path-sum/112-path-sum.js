@@ -12,7 +12,7 @@
  * @return {boolean}
  */
 var hasPathSum = function (root, targetSum) {
-    if (!root) return false
+    if (!root) return false;
     const stack = [[root, root.val]];
     while (stack.length) {
         const [node, val] = stack.shift();
