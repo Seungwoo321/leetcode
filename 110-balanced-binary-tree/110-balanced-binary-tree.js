@@ -11,21 +11,13 @@
  * @return {boolean}
  */
 var isBalanced = function(root) {
-    let result = true;
-    if (!root) {
-        return result;
+    if (!root) return true;
+    const maxDepth = (node) => {
+        if (!node) return 0;
+        const left = maxDepth(node.left);
+        const right = maxDepth(node.right);
+        if (Math.abs(left - right) > 1 || left === -1 || right === -1) return -1;
+        return 1 + Math.max(left, right);
     }
-    const dfs = (node) => {
-        if (!node) {
-            return 0;
-        }
-        const l = dfs(node.left);
-        const r = dfs(node.right);
-        if (Math.abs(l - r) > 1) {
-            result = false;
-        }
-        return 1 + Math.max(l, r);
-    }
-    dfs(root);
-    return result;
+    return maxDepth(root) !== -1;
 };
