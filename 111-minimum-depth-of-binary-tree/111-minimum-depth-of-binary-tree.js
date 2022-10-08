@@ -21,15 +21,18 @@ var minDepth = function (root) {
     if (!root) return 0;
     const q = [[root, 1]];
     while (q.length) {
-        const [node, level] = q.shift();
-        if (node.left) {
-            q.push([node.left, level + 1]);
-        }
-        if (node.right) {
-            q.push([node.right, level + 1]);
-        }
-        if (node && (!node.left && !node.right)) {
-            return level;
+        const len = q.length
+        for (let i = 0; i < len; i ++ ) {
+            const [node, level] = q.shift();
+            if (node.left) {
+                q.push([node.left, level + 1]);
+            }
+            if (node.right) {
+                q.push([node.right, level + 1]);
+            }
+            if (node && (!node.left && !node.right)) {
+                return level;
+            }
         }
     }
 };
