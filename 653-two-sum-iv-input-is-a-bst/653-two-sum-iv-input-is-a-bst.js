@@ -13,9 +13,7 @@
  */
 var findTarget = function(root, k, data = new Set()) {
     if (!root) return false;
-    if (!data.has(k - root.val)) {
-        return data.add(root.val) && findTarget(root.left, k, data) || findTarget(root.right, k, data);
-    } else {
-        return data.has(k - root.val) || findTarget(root.left, k, data) || findTarget(root.right, k, data);
-    }   
+    if (data.has(k - root.val)) return true;
+    data.add(root.val);
+    return findTarget(root.left, k, data) || findTarget(root.right, k, data);  
 };
