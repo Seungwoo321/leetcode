@@ -3,12 +3,12 @@
  * @return {string}
  */
 var convertToTitle = function(columnNumber) {
-    let columns = [];
+    let column = '';
     while (columnNumber != 0) {
         columnNumber -= 1;
-        columns.push(String.fromCharCode((columnNumber % 26) + 65));
+        column = String.fromCharCode((columnNumber % 26) + 65) + column;
         columnNumber = parseInt(columnNumber / 26);
 
     }
-    return columns.reverse().join('');
+    return column;
 };
