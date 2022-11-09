@@ -3,6 +3,6 @@
  * @return {number} - a positive integer
  */
 var reverseBits = function(n) {
-    // return parseInt([...n.toString(2).padStart(32,'0')].reverse().join(''), 2);
-    return BigInt(`0b${n.toString(2).split('').reverse().join('').padEnd(32, 0)}`);
+    return parseInt([...n.toString(2).padStart(32,'0')].reverse().join(''), 2);
+    // return BigInt(`0b${n.toString(2).split('').reverse().join('').padEnd(32, 0)}`);
 };
