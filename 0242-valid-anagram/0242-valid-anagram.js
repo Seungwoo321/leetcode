@@ -20,7 +20,7 @@ var isAnagram = function(s, t) {
             acc[cur.charCodeAt() % 26] = (acc[cur.charCodeAt() % 26] || 0) + 1;
         }
         return acc;
-    }, hashTable).filter(v => v > 0)) === 0
+    }, hashTable).filter(v => v > 0)) === 0;
     
     // let sMap = {};
     // let tMap = {};
