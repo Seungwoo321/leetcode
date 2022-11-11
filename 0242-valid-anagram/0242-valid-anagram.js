@@ -10,18 +10,20 @@ var isAnagram = function(s, t) {
         return false;
     }
     let sMap = {};
-    let tMap = {};
     for (let i = 0; i < s.length; i ++) {
         sMap[s[i]] = (sMap[s[i]] || 0) + 1;
-        tMap[t[i]] = (tMap[t[i]] || 0) + 1;
     }
-    for (let i = 0; i < s.length; i ++) {
-        if (sMap[s[i]] !== tMap[s[i]]) {
-            return false
+    for (let i = 0; i < t.length; i ++) {
+        if (sMap[t[i]]) {
+            sMap[t[i]]--;
+        } else {
+            sMap[t[i]] = (sMap[t[i]] || 0) + 1;
+        }
+        if (sMap[t[i]] === 0) {
+            delete sMap[t[i]];
         }
     }
-    
-    return true;
+    return Object.values(sMap).length === 0;
     // return Object.values([...t].reduce((acc, cur) => {
     //     if (acc[cur]) {
     //         acc[cur]--;
