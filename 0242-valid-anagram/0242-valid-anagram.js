@@ -14,10 +14,11 @@ var isAnagram = function(s, t) {
         return acc;
     }, []);
     return Math.max([...t].reduce((acc, cur) => {
-        if (acc[cur.charCodeAt() % 26]) {
-            acc[cur.charCodeAt() % 26]--;
+        const code = cur.charCodeAt() % 26
+        if (acc[code]) {
+            acc[code]--;
         } else {
-            acc[cur.charCodeAt() % 26] = (acc[cur.charCodeAt() % 26] || 0) + 1;
+            acc[code] = (acc[code] || 0) + 1;
         }
         return acc;
     }, hashTable).filter(v => v > 0)) === 0;
