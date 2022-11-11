@@ -25,14 +25,14 @@ var isAnagram = function(s, t) {
         if (acc[cur]) {
             acc[cur]--;
         } else {
-            acc[cur] = acc[cur] ? acc[cur] + 1 : 1;
+            acc[cur] = (acc[cur] || 0) + 1;
         }
         if (acc[cur] === 0) {
             delete acc[cur];
         }
         return acc;
     },[...s].reduce((acc, cur) => {
-        acc[cur] = acc[cur] ? acc[cur] + 1 : 1
+        acc[cur] = (acc[cur] || 0) + 1
         return acc;
     }, {}))).length === 0;
     
