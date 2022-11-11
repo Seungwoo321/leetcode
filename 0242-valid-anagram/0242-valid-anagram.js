@@ -4,5 +4,5 @@
  * @return {boolean}
  */
 var isAnagram = function(s, t) {
-    return [...s].sort().join('') === [...t].sort().join('');
+    return s.length === t.length && [...s].sort().join('') === [...t].sort().join('');
 };
