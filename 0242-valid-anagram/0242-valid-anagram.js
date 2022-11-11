@@ -9,18 +9,26 @@ var isAnagram = function(s, t) {
     if (s.length !== t.length) {
         return false;
     }
-    return Object.values([...t].reduce((acc, cur) => {
-        if (acc[cur]) {
-            acc[cur]--;
-        } else {
-            acc[cur] = acc[cur] ? acc[cur] + 1 : 1;
-        }
-        if (acc[cur] === 0) {
-            delete acc[cur];
+    // return Object.values([...t].reduce((acc, cur) => {
+    //     if (acc[cur]) {
+    //         acc[cur]--;
+    //     } else {
+    //         acc[cur] = acc[cur] ? acc[cur] + 1 : 1;
+    //     }
+    //     if (acc[cur] === 0) {
+    //         delete acc[cur];
+    //     }
+    //     return acc;
+    // },[...s].reduce((acc, cur) => {
+    //     acc[cur] = acc[cur] ? acc[cur] + 1 : 1
+    //     return acc;
+    // }, {}))).length === 0;
+    
+    return [...t].reduce((acc, cur) => {
+        const i = acc.indexOf(cur);
+        if (i > -1) {
+            acc.splice(i, 1);
         }
         return acc;
-    },[...s].reduce((acc, cur) => {
-        acc[cur] = acc[cur] ? acc[cur] + 1 : 1
-        return acc;
-    }, {}))).length === 0;
+    },[...s]).length === 0;
 };
