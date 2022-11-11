@@ -12,15 +12,15 @@ var isAnagram = function(s, t) {
     const hashTable = [...s].reduce((acc, cur) => {
         acc[cur.charCodeAt() % 26] = (acc[cur.charCodeAt() % 26] || 0) + 1
         return acc;
-    }, [])
-    return [...t].reduce((acc, cur) => {
+    }, []);
+    return Math.max([...t].reduce((acc, cur) => {
         if (acc[cur.charCodeAt() % 26]) {
             acc[cur.charCodeAt() % 26]--;
         } else {
             acc[cur.charCodeAt() % 26] = (acc[cur.charCodeAt() % 26] || 0) + 1;
         }
         return acc;
-    }, hashTable).filter(v => v > 0).length === 0
+    }, hashTable).filter(v => v > 0)) === 0
     
     // let sMap = {};
     // let tMap = {};
