@@ -9,11 +9,6 @@ var isAnagram = function(s, t) {
     if (s.length !== t.length) {
         return false;
     }
-    const hashTable = [...s].reduce((acc, cur) => {
-        const code = cur.charCodeAt() % 26;
-        acc[code] = (acc[code] || 0) + 1;
-        return acc;
-    }, []);
     return Math.max([...t].reduce((acc, cur) => {
         const code = cur.charCodeAt() % 26;
         if (acc[code]) {
@@ -22,7 +17,11 @@ var isAnagram = function(s, t) {
             acc[code] = (acc[code] || 0) + 1;
         }
         return acc;
-    }, hashTable).filter(v => v > 0)) === 0;
+    }, [...s].reduce((acc, cur) => {
+        const code = cur.charCodeAt() % 26;
+        acc[code] = (acc[code] || 0) + 1;
+        return acc;
+    }, [])).filter(v => v > 0)) === 0;
     
     // let sMap = {};
     // let tMap = {};
