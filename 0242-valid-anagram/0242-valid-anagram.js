@@ -10,11 +10,12 @@ var isAnagram = function(s, t) {
         return false;
     }
     const hashTable = [...s].reduce((acc, cur) => {
-        acc[cur.charCodeAt() % 26] = (acc[cur.charCodeAt() % 26] || 0) + 1
+        const code = cur.charCodeAt() % 26;
+        acc[code] = (acc[code] || 0) + 1;
         return acc;
     }, []);
     return Math.max([...t].reduce((acc, cur) => {
-        const code = cur.charCodeAt() % 26
+        const code = cur.charCodeAt() % 26;
         if (acc[code]) {
             acc[code]--;
         } else {
