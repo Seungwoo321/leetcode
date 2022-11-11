@@ -5,11 +5,8 @@
  */
 var isAnagram = function(s, t) {
     // return s.length === t.length && [...s].sort().join('') === [...t].sort().join('');
-    
-    if (s.length !== t.length) {
-        return false;
-    }
-    return Math.max([...t].reduce((acc, cur) => {
+
+    return s.length === t.length && Math.max([...t].reduce((acc, cur) => {
         const code = cur.charCodeAt() % 26;
         if (acc[code]) {
             acc[code]--;
@@ -23,6 +20,9 @@ var isAnagram = function(s, t) {
         return acc;
     }, [])).filter(v => v > 0)) === 0;
     
+    // if (s.length !== t.length) {
+    //     return false;
+    // }
     // let sMap = {};
     // let tMap = {};
     // for (let i = 0; i < s.length; i ++) {
