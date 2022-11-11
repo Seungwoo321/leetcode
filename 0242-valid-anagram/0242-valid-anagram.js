@@ -20,7 +20,6 @@ var isAnagram = function(s, t) {
             return false
         }
     }
-    
     return true;
     // return Object.values([...t].reduce((acc, cur) => {
     //     if (acc[cur]) {
