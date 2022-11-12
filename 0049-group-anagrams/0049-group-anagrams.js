@@ -13,5 +13,5 @@ var groupAnagrams = function(strs) {
         return table;
     }, {});
     
-    return Object.values(hashTable)
+    return Object.values(hashTable);
 };
