@@ -19,7 +19,7 @@ var invertTree = function(root) {
     // root.right = tmp;
     // return root;
     
-    const queue = [root]
+    const queue = [root];
     
     while (queue.length) {
         const node = queue.shift();
