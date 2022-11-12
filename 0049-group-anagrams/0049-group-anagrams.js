@@ -5,11 +5,7 @@
 var groupAnagrams = function(strs) {
     const hashTable = strs.reduce((table, str) => {
         const key = [...str].sort().join('');
-        if (!table[key]) {
-            table[key] = [str];
-        } else {
-            table[key].push(str);
-        }
+        table[key] = [str, ...table[key] ?? []];
         return table;
     }, {});
     
