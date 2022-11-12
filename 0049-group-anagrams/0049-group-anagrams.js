@@ -8,6 +8,5 @@ var groupAnagrams = function(strs) {
         table[key] = [str, ...table[key] ?? []];
         return table;
     }, {});
-    
     return Object.values(hashTable);
 };
