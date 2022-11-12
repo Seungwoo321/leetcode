@@ -12,10 +12,10 @@
 var reverseList = function(head) {
     const dummy = new ListNode();
     while (head) {
-        const newHead = head;
+        const current = head;
         head = head.next;
-        newHead.next = dummy.next;
-        dummy.next = newHead;
+        current.next = dummy.next;
+        dummy.next = current;
     }
     return dummy.next;
 };
