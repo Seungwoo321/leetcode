@@ -1,6 +1,6 @@
 
 var MyStack = function() {
-    this.queue = [null, null]
+    this.queue = []
     this.size = 0;
 };
 
@@ -17,7 +17,7 @@ MyStack.prototype.push = function(x) {
  * @return {number}
  */
 MyStack.prototype.pop = function() {
-    const value = this.queue[this.size]
+    const value = this.queue[this.size];
     this.queue[this.size] = null;
     this.size --;
     return value
