@@ -4,7 +4,7 @@
  */
 var groupAnagrams = function(strs) {
     const hashTable = strs.reduce((table, str) => {
-        const key = [...str].sort().join('').toString();
+        const key = [...str].sort().join('');
         if (!table[key]) {
             table[key] = [str];
         } else {
@@ -13,5 +13,5 @@ var groupAnagrams = function(strs) {
         return table;
     }, {});
     
-    return Object.values(hashTable).reverse();
+    return Object.values(hashTable)
 };
