@@ -1,7 +1,6 @@
 
 var MyStack = function() {
-    this.queue = [null, null];
-    this.size = 0;
+    this.queue = [];
 };
 
 /** 
@@ -9,32 +8,28 @@ var MyStack = function() {
  * @return {void}
  */
 MyStack.prototype.push = function(x) {
-    this.size ++;
-    this.queue[this.size] = x;
+    this.queue.unshift(x)
 };
 
 /**
  * @return {number}
  */
 MyStack.prototype.pop = function() {
-    const value = this.queue[this.size]
-    this.queue[this.size] = null;
-    this.size --;
-    return value
+    return this.queue.shift();
 };
 
 /**
  * @return {number}
  */
 MyStack.prototype.top = function() {
-    return this.queue[this.size];
+    return this.queue[0];
 };
 
 /**
  * @return {boolean}
  */
 MyStack.prototype.empty = function() {
-    return this.size === 0;
+    return this.queue.length === 0;
 };
 
 /** 
