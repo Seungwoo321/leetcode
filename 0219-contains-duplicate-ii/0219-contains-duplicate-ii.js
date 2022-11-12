@@ -6,7 +6,6 @@
 var containsNearbyDuplicate = function(nums, k) {
     const hashTable = {}
     for (let i = 0; i < nums.length; i ++) {
-
         if (typeof hashTable[nums[i]] !== 'number') {
             hashTable[nums[i]] = i;
         } else {
