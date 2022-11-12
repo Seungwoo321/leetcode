@@ -8,7 +8,7 @@ var groupAnagrams = function(strs) {
         if (!table[key]) {
             table[key] = [str];
         } else {
-            table[key] = [...table[key], str];
+            table[key].push(str);
         }
         return table;
     }, {});
