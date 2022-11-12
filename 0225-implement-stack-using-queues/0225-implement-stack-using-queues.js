@@ -1,6 +1,6 @@
 
 var MyStack = function() {
-    this.queue = [];
+    this.data = [];
 };
 
 /** 
@@ -8,28 +8,28 @@ var MyStack = function() {
  * @return {void}
  */
 MyStack.prototype.push = function(x) {
-    this.queue.unshift(x)
+    this.data.unshift(x)
 };
 
 /**
  * @return {number}
  */
 MyStack.prototype.pop = function() {
-    return this.queue.shift();
+    return this.data.shift();
 };
 
 /**
  * @return {number}
  */
 MyStack.prototype.top = function() {
-    return this.queue[0];
+    return this.data[0];
 };
 
 /**
  * @return {boolean}
  */
 MyStack.prototype.empty = function() {
-    return this.queue.length === 0;
+    return this.data.length === 0;
 };
 
 /** 
