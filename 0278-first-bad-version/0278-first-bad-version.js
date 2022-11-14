@@ -20,13 +20,12 @@ var solution = function(isBadVersion) {
     return function(n) {
         let left = 1;
         let right = n;
-        
         while (left < right) {
             let version = parseInt((left + right) / 2);
             if (isBadVersion(version)) {
-                right = version
+                right = version;
             } else {
-                left = version + 1
+                left = version + 1;
             }
         }
         return left;
