@@ -20,10 +20,10 @@ var solution = function(isBadVersion) {
     return function(n) {
         if (n === 1) return n;
         let p1 = 1;
-        let p2 = n
+        let p2 = n;
         
         while (p1 < p2) {
-            let version = parseInt((p1 + p2) / 2)
+            let version = parseInt((p1 + p2) / 2);
             if (isBadVersion(version)) {
                 if (isBadVersion(version - 1)) {
                     p2 = version - 1;
@@ -34,7 +34,7 @@ var solution = function(isBadVersion) {
                 p1 = version + 1;
             }
         }
-        return p1
+        return p1;
         
     };
 };
