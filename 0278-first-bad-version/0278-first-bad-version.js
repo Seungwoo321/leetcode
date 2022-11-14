@@ -18,7 +18,6 @@ var solution = function(isBadVersion) {
      * @return {integer} The first bad version
      */
     return function(n) {
-        if (n === 1) return n;
         let left = 1;
         let right = n;
         
