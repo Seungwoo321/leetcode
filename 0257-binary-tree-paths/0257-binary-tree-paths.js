@@ -20,7 +20,6 @@ var binaryTreePaths = function(root) {
     return [...left, ...right];
 //     const dfs = function (root, path = '', paths = []) {
 //         if (!root) return paths;
-        
 //         path += `${root.val}`;
 //         if (!root.left && !root.right) {
 //             paths.push(path);
