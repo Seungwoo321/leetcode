@@ -19,22 +19,18 @@ var solution = function(isBadVersion) {
      */
     return function(n) {
         if (n === 1) return n;
-        let p1 = 1;
-        let p2 = n;
+        let left = 1;
+        let right = n;
         
-        while (p1 < p2) {
-            let version = parseInt((p1 + p2) / 2);
+        while (left < right) {
+            let version = parseInt((left + right) / 2);
             if (isBadVersion(version)) {
-                if (isBadVersion(version - 1)) {
-                    p2 = version - 1;
-                } else {
-                    return version;
-                }
+                right = version
             } else {
-                p1 = version + 1;
+                left = version + 1
             }
         }
-        return p1;
+        return left;
         
     };
 };
