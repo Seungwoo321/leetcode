@@ -9,7 +9,7 @@ var countBits = function(n) {
         if (offset * 2 === i) {
             offset = i;
         }
-        dp.push(dp[i - offset] + 1);
+        dp[i] = dp[i - offset] + 1;
     }
     return dp;
 };
