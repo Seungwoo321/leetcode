@@ -13,5 +13,5 @@ var canConstruct = function(ransomNote, magazine) {
         const index = char.charCodeAt() % 26;
         hashTable[index] = hashTable[index] > 0 ? hashTable[index] - 1 : 0;
     }
-    return hashTable.every(v => v === 0);
+    return Math.max(...hashTable) === 0;
 };
