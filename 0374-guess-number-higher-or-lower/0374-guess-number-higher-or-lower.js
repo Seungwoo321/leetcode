@@ -18,7 +18,7 @@ var guessNumber = function(n) {
         let num = parseInt((lower + higher) / 2) 
         let result = guess(num);
         if (result === -1) {
-            higher = num;
+            higher = num - 1;
         } else if (result === 1) {
             lower = num + 1;
         } else {
