@@ -3,11 +3,11 @@
  * @return {string}
  */
 var reverseVowels = function(s) {
-    const vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'O', 'I', 'O', 'U'];
+    const vowels = 'aeiouAEIOU';
     let p1 = 0;
     let p2 = s.length - 1;
     let tmp = '';
-    let str = [...s];
+    s = [...s];
     while (p1 < p2) {
         if (!tmp) {
             if (vowels.includes(s[p1])) {
@@ -18,8 +18,8 @@ var reverseVowels = function(s) {
 
         } else {
             if (vowels.includes(s[p2])) {
-                str[p1] = s[p2];
-                str[p2] = tmp;
+                s[p1] = s[p2];
+                s[p2] = tmp;
                 tmp = '';
                 p1 ++;
                 p2 --;
@@ -28,5 +28,5 @@ var reverseVowels = function(s) {
             }
         }
     }
-    return str.join('');
+    return s.join('');
 };
