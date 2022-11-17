@@ -6,12 +6,10 @@ var fizzBuzz = function(n) {
     const answer = new Array(n).fill('');
     for (let i in answer) {
         let num = +i +1;
-        if (num % 3 === 0 && num % 5 === 0) {
-            answer[i] += 'FizzBuzz';
-        } else if (num % 3 === 0) {
-            answer[i] += 'Fizz';
-        } else if (num % 5 === 0) {
-            answer[i] += 'Buzz';
+        let fizz = num % 3 === 0 ? 'Fizz' : '';
+        let buzz = num % 5 === 0 ? 'Buzz' : '';
+        if (fizz || buzz) {
+            answer[i] = fizz + buzz;
         } else {
             answer[i] += num;
         }
