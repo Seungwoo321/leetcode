@@ -3,7 +3,7 @@
  * @return {string}
  */
 var toHex = function(num) {
-    if (num == 0) return '0'
+    if (num == 0) return '0';
     if (num < 0) num += 2 ** 32;
     let code = '0123456789abcdef';
     let answer = '';
