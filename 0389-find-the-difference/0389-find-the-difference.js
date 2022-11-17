@@ -4,14 +4,16 @@
  * @return {character}
  */
 var findTheDifference = function(s, t) {
-    const hashTable = new Array(26).fill(0);
+
+    let c = 0;
     for (let ss of s) {
-        const char = ss.charCodeAt() % 97;
-        hashTable[char] = hashTable[char] > 0 ? hashTable[char] + 1 : 1;
+        const char = ss.charCodeAt();
+        c ^= char;
     }
     for (let tt of t) {
-        const char = tt.charCodeAt() % 97;
-        hashTable[char] = hashTable[char] > 0 ? hashTable[char] - 1 : 1;
+        const char = tt.charCodeAt();
+        c ^= char;
     }
-    return String.fromCharCode(hashTable.findIndex(v => v > 0) + 97);
+    return String.fromCharCode(c);
+    
 };
