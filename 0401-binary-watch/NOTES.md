@@ -1,27 +1,22 @@
 ```
+​
 /**
 * @param {number} turnedOn
 * @return {string[]}
 */
 var readBinaryWatch = function(turnedOn) {
-const time = [];
-const bitCount = (num) => {
-let res = 0;
-while (num) {
-res += num & 1;
-num >>= 1;
-}
-return res;
-};
-for (let i = 0; i < 12; i ++) {
-for (let j = 0; j < 60; j ++) {
-if (bitCount(i) + bitCount(j) === turnedOn) {
-time.push(`${i}:${j < 10 ? '0' : ''}${j}`);
-}
-}
-}
-return time;
+const hms = [1, 2, 4, 8, 1, 2, 4, 8, 16, 32];
+const result = [];
+const length = hms.length;
+dfs(turnedOn, hms, length, 0, result, 0, 0);
+return result;
 };
 ​
-​
-```
+function dfs(count, hms, length, index, result, h, m) {
+if (count < 0 || index > length || h > 11 || m > 59) {
+return;
+}
+if (count === 0) {
+result.push(`${h}:${m >= 10 ? '' : '0'}${m}`);
+return;
+}
