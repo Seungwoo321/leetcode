@@ -8,15 +8,14 @@ var fizzBuzz = function(n) {
         let num = +i +1;
         if (num % 3 === 0 && num % 5 === 0) {
             answer[i] += 'FizzBuzz';
-            continue;
         } else if (num % 3 === 0) {
             answer[i] += 'Fizz';
-            continue;
         } else if (num % 5 === 0) {
             answer[i] += 'Buzz';
-            continue;
+        } else {
+            answer[i] += num;
         }
-        answer[i] += num;
+        
     }
     return answer
 };
