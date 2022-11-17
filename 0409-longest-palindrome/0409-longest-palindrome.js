@@ -13,5 +13,4 @@ var longestPalindrome = function(s) {
         }
     }
     return answer + (s.length > answer);
-   
 };
