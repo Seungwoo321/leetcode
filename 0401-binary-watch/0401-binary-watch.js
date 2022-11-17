@@ -10,7 +10,6 @@ var readBinaryWatch = function(turnedOn) {
             if (dp[i] + dp[j] === turnedOn) {
                 time.push(`${i}:${j < 10 ? '0' : ''}${j}`);
             }
-            continue;
         }
     }
     return time;
