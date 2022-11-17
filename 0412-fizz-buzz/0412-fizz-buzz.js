@@ -13,7 +13,6 @@ var fizzBuzz = function(n) {
         } else {
             answer[i] = '' + num;
         }
-        
     }
-    return answer
+    return answer;
 };
