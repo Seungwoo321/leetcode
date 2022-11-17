@@ -4,10 +4,10 @@
  */
 var readBinaryWatch = function(turnedOn) {
     const time = [];
-    // const dp = countBits(60);
+    const dp = countBits(60);
     for (let i = 0; i < 12; i ++) {
         for (let j = 0; j < 60; j ++) {
-            if (bitCount(i) + bitCount(j) === turnedOn) {
+            if (dp[i] + dp[j] === turnedOn) {
                 time.push(`${i}:${j < 10 ? '0' : ''}${j}`);
             }
         }
