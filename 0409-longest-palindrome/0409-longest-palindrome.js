@@ -4,18 +4,14 @@
  */
 var longestPalindrome = function(s) {
     let hashTable = Array(52).fill(0);
-    let flag = 0;
+    let answer = 0;
     for (let ss of s) {
         const index = ss.charCodeAt() % 52;
         hashTable[index] = hashTable[index] > 0 ? hashTable[index] + 1 : 1;
-    }
-    return hashTable.reduce((acc, cur) => {
-        acc += cur;
-        if (cur % 2 === 1) {
-            acc -= 1;
-            flag = 1;
+        if (hashTable[index] % 2 === 0) {
+            answer += 2;
         }
-        return acc;
-    }, 0) + flag;
+    }
+    return answer + (s.length > answer);
    
 };
