@@ -17,12 +17,12 @@ var readBinaryWatch = function(turnedOn) {
 };
 
 const bitCount = (num) => {
-  let res = 0
+  let res = 0;
   while (num) {
-    res += num & 1
-    num >>= 1
+    res += num & 1;
+    num >>= 1;
   }
-  return res
+  return res;
 }
 var countBits = function(n) {
     const dp = [0];
