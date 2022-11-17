@@ -2,30 +2,23 @@
  * @param {number} turnedOn
  * @return {string[]}
  */
-var readBinaryWatch = function(turnedOn) {    
-    const hms = [1, 2, 4, 8, 1, 2, 4, 8, 16, 32];
-    const result = [];
-    const length = hms.length;
+var readBinaryWatch = function(turnedOn) {
+    const time = [];
+    const bitCount = (num) => {
+      let res = 0;
+      while (num) {
+        res += num & 1;
+        num >>= 1;
+      }
+      return res;
+    };
+    for (let i = 0; i < 12; i ++) {
+        for (let j = 0; j < 60; j ++) {
+            if (bitCount(i) + bitCount(j) === turnedOn) {
+                time.push(`${i}:${j < 10 ? '0' : ''}${j}`);
+            }
+        }
+    }
+    return time;
     
-    dfs(turnedOn, hms, length, 0, result, 0, 0);
-    
-    return result;
 };
-
-function dfs(count, hms, length, index, result, h, m) {
-    if (count < 0 || index > length || h > 11 || m > 59) {
-        return;
-    }
-    
-    if (count === 0) {
-        result.push(`${h}:${m >= 10 ? '' : '0'}${m}`);
-        return;
-    }
-    
-    for (let i = index; i < length; i++) {
-        const cur = hms[i];
-        const nextH = i <= 3 ? h + cur : h;
-        const nextM = i <= 3 ? m : m + cur;
-        dfs(count - 1, hms, length, i + 1, result, nextH, nextM);
-    }
-}
