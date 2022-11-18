@@ -8,7 +8,7 @@ var findDisappearedNumbers = function(nums) {
     for (let n of nums) {
         hashTable[n - 1] = n;
     }
-    for (let i in hashTable) {
+    for (let i = 0; i < hashTable.length; i ++) {
         if (hashTable[i] === 0) {
             answer.push(+i + 1);
         }
