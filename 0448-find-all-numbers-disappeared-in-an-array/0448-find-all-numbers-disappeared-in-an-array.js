@@ -3,17 +3,14 @@
  * @return {number[]}
  */
 var findDisappearedNumbers = function(nums) {
-    nums = nums.sort((a, b) => a - b);
-    let i = 1;
+    const hashTable = new Array(nums.length).fill(0);
     let answer = [];
     for (let n of nums) {
-        if (n === i) {
-            i++;
-        } else {
-            if (!nums.includes(i)) {
-                answer.push(i);
-            }
-            i ++;
+        hashTable[n - 1] = n;
+    }
+    for (let i in hashTable) {
+        if (hashTable[i] === 0) {
+            answer.push(+i + 1);
         }
     }
     return answer;
