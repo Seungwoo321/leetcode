@@ -17,3 +17,4 @@ var isUgly = function(n) {
     }
     return n === 1;
 };
+
