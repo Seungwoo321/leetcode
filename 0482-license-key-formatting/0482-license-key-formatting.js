@@ -5,15 +5,15 @@
  */
 var licenseKeyFormatting = function(s, k) {
     let key = '';
-    let count = 0;
-    const str = s.split('-').join('');
-    for (let i = str.length - 1; i >= 0; i --) {
-        key = str[i] + key;
-        count ++;
-        if (i > 0 && count === k) {
-            key = '-' + key;
-            count = 0;
-        }
+    const str = s.replaceAll('-', '');
+    let point = str.length % k;
+    
+    for (let i = 0; i < str.length; i ++) {
+        if (i > 0 && i % k === point) {
+            key += '-';
+        } 
+        key += str[i];
+
     }
     return key.toUpperCase();
     
