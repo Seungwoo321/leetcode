@@ -3,9 +3,7 @@
  * @return {number}
  */
 var findComplement = function(num) {
-    let mask = 1;
-    while (mask < num) {
-        mask = (mask << 1) | 1;
-    }
+    let bit = Math.log2(num) + 1;
+    let mask = (1 << bit) - 1;
     return num ^ mask;
 };
