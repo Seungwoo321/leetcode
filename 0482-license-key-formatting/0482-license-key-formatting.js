@@ -8,12 +8,7 @@ var licenseKeyFormatting = function(s, k) {
     const str = s.replaceAll('-', '');
     let sizeOfGroup = str.length % k;
     for (let i = 0; i < str.length; i ++) {
-        if (i > 0 && i % k === sizeOfGroup) {
-            key += '-';
-        } 
-        key += str[i];
+        key += ((i > 0) && (i % k === sizeOfGroup) ? '-' : '') + str[i];
     }
     return key.toUpperCase();
-    
-    
 };
