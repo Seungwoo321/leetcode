@@ -4,9 +4,9 @@
  * @return {string}
  */
 var licenseKeyFormatting = function(s, k) {
-    let key = '';
     const str = s.replaceAll('-', '');
-    let sizeOfGroup = str.length % k;
+    const sizeOfGroup = str.length % k;
+    let key = '';
     for (let i = 0; i < str.length; i ++) {
         key += ((i > 0) && (i % k === sizeOfGroup) ? '-' : '') + str[i];
     }
