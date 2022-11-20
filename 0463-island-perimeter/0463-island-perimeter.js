@@ -3,24 +3,16 @@
  * @return {number}
  */
 var islandPerimeter = function(grid) {
-    const bfs = (y, x, visted) => {
-        if (visted[`${y},${x}`]) {
-            return 0;
-        }
-        if (!(y in grid) || !(x in grid[0]) || grid[y][x] === 0) {
-            return 1;
-        }
-        visted[`${y},${x}`] = true
-        return (bfs(y + 1, x, visted) 
-                + bfs(y - 1, x, visted)
-                + bfs(y, x + 1, visted)
-                + bfs(y, x - 1, visted));
-    }
+    let perimeter = 0;
     for (let i = 0; i < grid.length; i ++) {
         for (let j = 0; j < grid[i].length; j ++) {
             if (grid[i][j] === 1) {
-                return bfs(i, j, {});
+                if (!(i + 1 in grid) || grid[i + 1][j] === 0) perimeter ++;
+                if (!(i - 1 in grid) || grid[i - 1][j] === 0) perimeter ++;
+                if (!(j + 1 in grid[i]) || grid[i][j + 1] === 0) perimeter ++;
+                if (!(j - 1 in grid[i]) || grid[i][j - 1] === 0) perimeter ++;
             }
         }
     }
+    return perimeter;
 };
