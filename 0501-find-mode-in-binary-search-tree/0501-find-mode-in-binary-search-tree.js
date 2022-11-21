@@ -17,14 +17,9 @@ var findMode = function(root) {
     let countMap = new Map();
     while (queue.length) {
         let node = queue.shift();
-        if (countMap.has(node.val)) {
-            let count = countMap.get(node.val) + 1;
-            countMap.set(node.val, count);
-            maxCount = Math.max(count, maxCount);
-        } else {
-            countMap.set(node.val, 1);
-            maxCount = Math.max(1, maxCount);
-        }
+        let count = countMap.has(node.val) ? countMap.get(node.val) + 1 : 1;
+        countMap.set(node.val, count);
+        maxCount = Math.max(count, maxCount);
 
         if (node.left && node.left.val !== null) {
             queue.push(node.left);
