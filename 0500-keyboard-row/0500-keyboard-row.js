@@ -10,8 +10,7 @@ var findWords = function(words) {
         return acc;
     }, new Array(27).fill(0));
     return words.filter(word => {
-        let firstRow = hashTable[word[0].toLowerCase().charCodeAt() % 27]
+        let firstRow = hashTable[word[0].toLowerCase().charCodeAt() % 27];
         return [...word].every(w => hashTable[w.toLowerCase().charCodeAt() % 27] === firstRow);
-    })
-    
+    });
 };
