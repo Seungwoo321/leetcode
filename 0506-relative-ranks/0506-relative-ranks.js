@@ -9,17 +9,14 @@ var findRelativeRanks = function(score) {
         const [value, index] = queue.shift();
         if (rank === 1) {
             score[index] = "Gold Medal";
-            rank = 2
         } else if (rank === 2) {
             score[index] = "Silver Medal";
-            rank = 3
         } else if (rank === 3) {
             score[index] = "Bronze Medal";
-            rank = 4
         } else {
             score[index] = '' + rank;
-            rank ++;
         }
+        rank ++;
     }
     return score;
 };
