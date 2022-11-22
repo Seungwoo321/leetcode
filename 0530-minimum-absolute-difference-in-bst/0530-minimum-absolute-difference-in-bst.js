@@ -11,18 +11,22 @@
  * @return {number}
  */
 var getMinimumDifference = function(root) {
+    const inorder = (node, arr) => {
+        if (node.left && node.left.val !== null) {
+            inorder(node.left, arr);
+        }
+        if (node.val !== null) {
+            arr.push(node.val);
+        }
+        if (node.right && node.right.val !== null) {
+            inorder(node.right, arr);
+        }
+        return arr;
+    }
+    const arr = inorder(root, []);
     let diff = Infinity;
-    const stack = [[root, [root.val]]];
-    while (stack.length) {
-        const [node, values] = stack.shift();
-        if (node.right && node.right.val) {
-            diff = Math.min(...values.map(v => Math.abs(v - node.right.val)), diff);
-            stack.unshift([node.right, [...values, node.right.val]]);
-        }
-        if (node.left && node.left.val) {
-            diff = Math.min(...values.map(v => Math.abs(v - node.left.val)), diff);
-            stack.unshift([node.left, [...values, node.left.val]]);
-        }
+    for (let i = 1; i < arr.length; i ++) {
+        diff = Math.min(Math.abs(arr[i] - arr[i - 1]), diff);
     }
     return diff;
 };
