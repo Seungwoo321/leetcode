@@ -28,6 +28,6 @@ var getMinimumDifference = function(root) {
         return diff
     }
     
-    let diff = inorder(root, [], Infinity);
-    return diff;
+    let min = inorder(root, [], Infinity);
+    return min;
 };
