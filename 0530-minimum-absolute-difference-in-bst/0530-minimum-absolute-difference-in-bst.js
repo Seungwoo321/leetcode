@@ -17,7 +17,9 @@ var getMinimumDifference = function(root) {
             diff = inorder(node.left, arr, diff);
         }
         if (node.val !== null) {
-            diff = arr.length ? Math.min(Math.abs(arr[arr.length - 1] - node.val), diff) : diff;
+            if (arr.length) {
+                diff = Math.min(Math.abs(arr[arr.length - 1] - node.val), diff);
+            }
             arr.push(node.val);
         }
         if (node.right && node.right.val !== null) {
