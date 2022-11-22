@@ -12,20 +12,20 @@
  */
 var getMinimumDifference = function(root) {
 
-    const inorder = (node, arr) => {
+    const inorder = (node, arr, diff) => {
         if (node.left && node.left.val !== null) {
-            inorder(node.left, arr);
+            diff = inorder(node.left, arr, diff);
         }
         if (node.val !== null) {
             diff = arr.length ? Math.min(Math.abs(arr[arr.length - 1] - node.val), diff) : diff;
             arr.push(node.val);
         }
         if (node.right && node.right.val !== null) {
-            inorder(node.right, arr);
+            diff = inorder(node.right, arr, diff);
         }
+        return diff
     }
     
-    let diff = Infinity;
-    inorder(root, []);
+    let diff = inorder(root, [], Infinity);
     return diff;
 };
