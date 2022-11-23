@@ -3,5 +3,16 @@
  * @return {string}
  */
 var reverseWords = function(s) {
-    return s.split(' ').map(ss => [...ss].reverse().join('')).join(' ');
-};
+    let answer = '';
+    let word = '';
+    for (let c of s) {
+        if (c === ' ') {
+            answer = `${answer ? `${answer} ${word}` : `${word}`}`
+            word = '';
+        } else {
+            word = c + word;
+        }
+    }
+    answer = `${answer ? `${answer} ${word}` : `${word}`}`;
+    return answer;
+} ;
