@@ -7,12 +7,11 @@ var reverseWords = function(s) {
     let word = '';
     for (let c of s) {
         if (c === ' ') {
-            answer = `${answer ? `${answer} ${word}` : `${word}`}`
+            answer += word + c;
             word = '';
         } else {
             word = c + word;
         }
     }
-    answer = `${answer ? `${answer} ${word}` : `${word}`}`;
-    return answer;
+    return answer + word;
 } ;
