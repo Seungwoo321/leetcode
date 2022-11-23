@@ -13,11 +13,11 @@
 var diameterOfBinaryTree = function(root) {
     let diameter = 0;
     const traversal = (root) => {
-        if (!root) return -1;
+        if (!root) return 0;
         const left = traversal(root.left);
         const right = traversal(root.right);
 
-        diameter = Math.max(diameter, 2 + left + right);
+        diameter = Math.max(diameter, left + right);
         return 1 + Math.max(left, right);
     }
     traversal(root);
