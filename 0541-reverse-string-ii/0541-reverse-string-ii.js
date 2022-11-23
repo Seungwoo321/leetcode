@@ -13,5 +13,4 @@ var reverseStr = function(s, k) {
         start = next;
     }
     return answer.join('');
-    
 };
