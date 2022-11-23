@@ -5,7 +5,7 @@
  */
 var reverseStr = function(s, k) {
     let start = 0;
-    let answer = '';
+    let answer = [];
     s = [...s]
     while (start < s.length) {
         let next = start + (2 * k);
