@@ -9,7 +9,7 @@ var reverseStr = function(s, k) {
     while (start < s.length) {
         answer += [...s.slice(start, start + k)].reverse().join('');
         let next = start + (2 * k)
-        answer += s.slice(start + k, next)
+        answer += s.slice(start + k, next);
         start = next;
     }
     return answer;
