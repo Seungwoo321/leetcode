@@ -14,4 +14,4 @@ var reverseWords = function(s) {
         }
     }
     return answer + word;
-} ;
+};
