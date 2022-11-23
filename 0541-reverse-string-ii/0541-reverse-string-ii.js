@@ -12,6 +12,5 @@ var reverseStr = function(s, k) {
         answer = [...answer, ...s.slice(start, start + k).reverse(), ...s.slice(start + k, next)];
         start = next;
     }
-    s = null;
     return answer.join('');
 };
