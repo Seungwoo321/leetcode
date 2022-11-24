@@ -10,12 +10,10 @@
  * @param {Node|null} root
  * @return {number}
  */
-let count = 1
 var maxDepth = function(root) {
     
     if (!root) return 0;
     const bfs = (root, depth) => {
-        console.log(++count)
         if (!root.children) return depth;
         let max = depth        
         for (let node of root.children) {
