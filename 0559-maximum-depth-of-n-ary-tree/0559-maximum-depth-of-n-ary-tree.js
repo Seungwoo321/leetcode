@@ -13,13 +13,14 @@
 var maxDepth = function(root) {
     
     if (!root) return 0;
-    const bfs = (root, depth) => {
+    const dfs = (root, depth) => {
+        console.log(root.val)
         if (!root.children) return depth;
         let max = depth        
         for (let node of root.children) {
-            max = Math.max(bfs(node, depth + 1), max);
+            max = Math.max(dfs(node, depth + 1), max);
         }
         return max;    
     }
-    return bfs(root, 1);
+    return dfs(root, 1);
 };
