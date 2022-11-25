@@ -13,13 +13,14 @@
  */
 var isSubtree = function(root, subRoot) {
     if (!root) return root;
-    const isSameTree = (p, q) => {
-        if (p === null || q === null) {
-            return p === q;
-        }
-        return p.val === q.val
-            && isSameTree(p.left, q.left)
-            && isSameTree(p.right, q.right);
-    };
+
     return isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot) || isSameTree(root, subRoot);
+};
+var isSameTree = function (p, q) {
+    if (p === null || q === null) {
+        return p === q;
+    }
+    return p.val === q.val
+        && isSameTree(p.left, q.left)
+        && isSameTree(p.right, q.right);
 };
