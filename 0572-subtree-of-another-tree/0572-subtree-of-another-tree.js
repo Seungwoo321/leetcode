@@ -12,7 +12,7 @@
  * @return {boolean}
  */
 var isSubtree = function(root, subRoot) {
-    
+    if (!root) return root;
     const isSameTree = (p, q) => {
         if (p === null || q === null) {
             return p === q;
@@ -21,11 +21,8 @@ var isSubtree = function(root, subRoot) {
             && isSameTree(p.left, q.left)
             && isSameTree(p.right, q.right);
     };
-    const dfs = (node) => {
-        if (!node) return node;
-        return (dfs(node.left) || dfs(node.right) || isSameTree(node, subRoot));
-    };
+    return isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot) || isSameTree(root, subRoot);
     
-    return dfs(root);
+
     
 };
