@@ -3,7 +3,7 @@
  * @return {number}
  */
 var distributeCandies = function(candyType) {
-    const set = new Set();
+    const set = new Set()
     for (let i = 0; i < candyType.length; i ++) {
         if (!set.has(candyType[i])) {
             set.add(candyType[i]);
