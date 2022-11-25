@@ -5,12 +5,12 @@
 var distributeCandies = function(candyType) {
     candyType = candyType.sort((a, b) => a - b);
     const maximum = candyType.length / 2
-    let set = new Set();
-    while (candyType.length && set.size < maximum) {
+    let data = {}
+    let uniq = 0;
+    while (candyType.length && uniq < maximum) {
         const candy = candyType.shift();
-        if (!set.has(candy)) {
-            set.add(candy);
-        }
+        if (!data[candy]) uniq ++;
+        data[candy] = (data[candy] || 0) + 1;
     }
-    return set.size;
+    return uniq;
 };
