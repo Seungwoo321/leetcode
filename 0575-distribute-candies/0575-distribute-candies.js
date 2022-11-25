@@ -3,11 +3,14 @@
  * @return {number}
  */
 var distributeCandies = function(candyType) {
-    const set = new Set()
-    for (let i = 0; i < candyType.length; i ++) {
-        if (!set.has(candyType[i])) {
-            set.add(candyType[i]);
+    candyType = candyType.sort((a, b) => a - b);
+    const maximum = candyType.length / 2
+    let set = new Set();
+    while (candyType.length && set.size < maximum) {
+        const candy = candyType.shift();
+        if (!set.has(candy)) {
+            set.add(candy);
         }
     }
-    return Math.min(set.size, parseInt(candyType.length / 2));
+    return set.size;
 };
