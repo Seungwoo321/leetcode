@@ -11,5 +11,5 @@
  * @return {number[]}
  */
 var postorder = function(root) {
-    return root ? [root.children.map(postorder).flat(), root.val].flat() : [];
+    return root ? [...root.children.map(postorder).flat(), root.val] : [];
 };
