@@ -10,12 +10,14 @@
  * @param {Node|null} root
  * @return {number[]}
  */
-var preorder = function(root, visted = []) {
-    if (root === null) return [];
-    if (root.val !== null) visted.push(root.val);
-    root.children.forEach(node => {
-        preorder(node, visted);
-    })
+var preorder = function(root) {
+    if (!root) return [];
+    const stack = [root];
+    const visted = [];
+    while (stack.length) {
+        const node = stack.shift();
+        if (node.val !== null) visted.push(node.val);
+        node.children.reverse().forEach(n => stack.unshift(n));
+    }
     return visted;
-    
 };
