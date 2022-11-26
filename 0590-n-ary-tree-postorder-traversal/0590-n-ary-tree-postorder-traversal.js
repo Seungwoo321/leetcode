@@ -10,6 +10,6 @@
  * @param {Node|null} root
  * @return {number[]}
  */
-var postorder = function(root, visted = []) {
+var postorder = function(root) {
     return root ? [...root?.children.map(postorder).flat() ?? [], root.val] : [];
 };
