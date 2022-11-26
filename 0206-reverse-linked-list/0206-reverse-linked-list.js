@@ -11,7 +11,7 @@
  */
 var reverseList = function(head, dummy = null) {
     if (!head) return dummy;
-    const current = head.next;
+    const node = head.next;
     head.next = dummy;
-    return reverseList(current, head);
+    return reverseList(node, head);
 };
