@@ -1,4 +1,22 @@
 ​
+## Iterative solution
+```
+var postorder = function(root) {
+if (!root) return [];
+const stack = [root];
+const visted = [];
+while (stack.length) {
+const node = stack.shift();
+node.children.forEach(n => stack.unshift(n));
+visted.unshift(node.val);
+}
+return visted;
+};
+```
+​
+​
+## Recursive solution
+​
 ```
 var postorder = function(root, visted = []) {
 if (!root) return [];
@@ -7,6 +25,8 @@ visted.push(root.val);
 return visted;
 };
 ```
+​
+- one-line
 ​
 ```
 var postorder = function(root) {
