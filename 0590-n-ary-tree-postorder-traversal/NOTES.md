@@ -1,6 +1,6 @@
 ​
 ## Iterative solution
-```
+```js
 var postorder = function(root) {
 if (!root) return [];
 const stack = [root];
@@ -17,7 +17,7 @@ return visted;
 ​
 ## Recursive solution
 ​
-```
+```js
 var postorder = function(root, visted = []) {
 if (!root) return [];
 root.children.forEach(node => postorder(node, visted))
@@ -28,7 +28,7 @@ return visted;
 ​
 - one-line
 ​
-```
+```js
 var postorder = function(root) {
 return root ? [...root.children.map(postorder).flat(), root.val] : [];
 };
