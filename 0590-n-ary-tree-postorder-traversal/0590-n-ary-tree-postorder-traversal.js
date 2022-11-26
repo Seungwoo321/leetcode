@@ -17,7 +17,7 @@ var postorder = function(root) {
     while (stack.length) {
         const node = stack.shift();
         node.children.forEach(n => stack.unshift(n));
-        if (root.val !== null) visted.unshift(node.val);
+        visted.unshift(node.val);
     }
     return visted;
 };
