@@ -10,14 +10,9 @@
  * @param {Node|null} root
  * @return {number[]}
  */
-var postorder = function(root) {
+var postorder = function(root, visted = []) {
     if (!root) return [];
-    const stack = [root];
-    const visted = [];
-    while (stack.length) {
-        const node = stack.shift();
-        node.children.forEach(n => stack.unshift(n));
-        visted.unshift(node.val);
-    }
+    root.children.forEach(node => postorder(node, visted))
+    visted.push(root.val);
     return visted;
 };
