@@ -11,8 +11,5 @@
  * @return {number[]}
  */
 var preorder = function(root, visted = []) {
-    if (root === null) return [];
-    visted.push(root.val);
-    root.children.forEach(node => preorder(node, visted));
-    return visted;
+    return root ? [root.val, ...root.children.map(preorder).flat()] : [];
 };
