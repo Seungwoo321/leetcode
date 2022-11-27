@@ -10,13 +10,11 @@
  * @return {ListNode}
  */
 var middleNode = function(head) {
-    if (head.next === null) return head;
-    let i = 0;
-    const points = [];
-    while (head !==  null) {
-        points.push(head);
-        head = head.next;
-        i ++;
+    let fest = head;
+    let slow = head;
+    while (fest !== null && fest.next !==  null) {
+        fest = fest.next.next;
+        slow = slow.next;
     }
-    return points[parseInt(i / 2)];
+    return slow;
 };
