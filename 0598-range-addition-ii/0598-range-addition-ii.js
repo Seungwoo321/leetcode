@@ -19,5 +19,5 @@ var maxCount = function(m, n, ops) {
         row: Infinity,
         col: Infinity,
         answer: 0
-    }).answer
+    }).answer;
 };
