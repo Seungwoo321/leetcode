@@ -12,5 +12,5 @@ var findMaxAverage = function(nums, k) {
             arr.push(arr[arr.length - 1] - nums[i - k] + num);
         }
     });
-    return Math.max(...arr) / k;
+    return Math.max.apply(null, arr) / k;
 };
