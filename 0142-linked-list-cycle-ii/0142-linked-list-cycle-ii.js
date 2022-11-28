@@ -11,13 +11,21 @@
  * @return {ListNode}
  */
 var detectCycle = function(head) {
-    const hashTable = new Set();
-    while (head) {
-        if (hashTable.has(head)) {
-            return head;   
+    let fest = head;
+    let slow = head;
+    while (fest && fest.next) {
+        fest = fest.next.next;
+        slow = slow.next
+        if (fest === slow) {
+            break;
         }
-        hashTable.add(head);
+    }
+    if (!fest || !fest.next) {
+        return null;
+    }
+    while (head !== slow) {
+        slow = slow.next;
         head = head.next;
     }
-    return null;
+    return slow;
 };
