@@ -11,9 +11,8 @@
  * @return {string}
  */
 var tree2str = function(root) {
-    const dfs = (node) => {
-        if (node === null) return '';
-        return node.val + (node.left ? `(${dfs(node.left)})` : (node.right ? '()' : '')) + (node.right ? `(${dfs(node.right)})` : '');
-    }
-    return dfs(root)
+    if (root === null) return '';
+    return root.val 
+        + (root.left ? `(${tree2str(root.left)})` : (root.right ? '()' : ''))
+        + (root.right ? `(${tree2str(root.right)})` : '');
 };
