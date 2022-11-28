@@ -12,13 +12,12 @@
  */
 var detectCycle = function(head) {
     const hashTable = new Set();
-    while (!hashTable.has(head)) {
-        hashTable.add(head);
-        if (head) {
-            head = head.next;    
-        } else {
-            head = null;
+    while (head) {
+        if (hashTable.has(head)) {
+            return head;   
         }
+        hashTable.add(head);
+        head = head.next;
     }
-    return head;
+    return null;
 };
