@@ -17,7 +17,7 @@ var imageSmoother = function(img) {
                     }
                 }
             }
-            smoothImg[i][j] = parseInt(sum / count);
+            smoothImg[i][j] = Math.floor(sum / count);
         }
     }
     return smoothImg;
