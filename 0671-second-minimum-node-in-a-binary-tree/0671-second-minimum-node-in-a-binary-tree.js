@@ -11,7 +11,7 @@
  * @return {number}
  */
 var findSecondMinimumValue = function(root) {
-    let leaf = [];
+    let leafNodes = [];
     const dfs = (node, arr = []) => {
         if (!node) return null;
         if (node.left === null && node.right === null) {
@@ -20,12 +20,12 @@ var findSecondMinimumValue = function(root) {
         dfs(node.left, arr);
         dfs(node.right, arr);
     }
-    dfs(root, leaf);
-    leaf = leaf.sort((a, b) => a - b);
-    let min = leaf[0];
-    for (let i = 0; i < leaf.length; i ++) {
-        if (min < leaf[i]) {
-            return leaf[i];
+    dfs(root, leafNodes);
+    leafNodes = leafNodes.sort((a, b) => a - b);
+    let min = leafNodes[0];
+    for (let i = 0; i < leafNodes.length; i ++) {
+        if (min < leafNodes[i]) {
+            return leafNodes[i];
         }
     }
     return -1;
