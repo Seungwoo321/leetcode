@@ -5,7 +5,6 @@
 var findErrorNums = function(nums) {
     let hashTable = new Array(nums.length).fill(0);
     let duplicateNumb = 0;
-    let missingNum = 0;
     nums.forEach((n, i) => {
         hashTable[n - 1]++;
         if (hashTable[n - 1] === 2) {
