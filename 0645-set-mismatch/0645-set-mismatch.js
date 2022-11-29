@@ -12,5 +12,5 @@ var findErrorNums = function(nums) {
             duplicateNumb = n;
         }
     });
-    return [duplicateNumb, hashTable.findIndex(v => v === 0) + 1]
+    return [duplicateNumb, hashTable.findIndex(v => v === 0) + 1];
 };
