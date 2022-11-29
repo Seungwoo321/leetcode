@@ -9,7 +9,7 @@ var validPalindrome = function(s) {
         if (s[left] !== s[right]) {
             let s1 = s.substr(0, left) + s.substr(left + 1);
             let s2 = s.substr(0, right) + s.substr(right + 1);
-            return s1 === s1.split('').reverse().join('') || s2 === s2.split('').reverse().join('');
+            return s1 === [...s1].reverse().join('') || s2 === [...s2].reverse().join('');
         }
         left ++;
         right --;
