@@ -7,8 +7,8 @@ var validPalindrome = function(s) {
     let right = s.length - 1;
     while (left < right) {
         if (s[left] !== s[right]) {
-            let s1 = s.substr(0, left) + s.substr(left + 1);
-            let s2 = s.substr(0, right) + s.substr(right + 1);
+            let s1 = s.slice(left + 1, right + 1)
+            let s2 = s.slice(left, right);
             return s1 === [...s1].reverse().join('') || s2 === [...s2].reverse().join('');
         }
         left ++;
