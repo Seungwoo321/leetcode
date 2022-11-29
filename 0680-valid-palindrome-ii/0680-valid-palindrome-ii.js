@@ -9,11 +9,11 @@ var validPalindrome = function(s) {
         if (s[left] !== s[right]) {
             let s1 = s.substr(0, left) + s.substr(left + 1);
             if (s1 === [...s1].reverse().join('')) {
-                return true
+                return true;
             }
             let s2 = s.substr(0, right) + s.substr(right + 1);
             if (s2 === [...s2].reverse().join('')) {
-                return true
+                return true;
             }
             return false;
         }
