@@ -5,7 +5,6 @@
 var imageSmoother = function(img) {
     const smoothImg = new Array(img.length).fill(0).map(v => new Array(img[0].length).fill(0));
 
-    
     for (let i = 0; i < img.length; i ++) {
         for (let j = 0; j < img[i].length; j ++) {
             let sum = 0;
