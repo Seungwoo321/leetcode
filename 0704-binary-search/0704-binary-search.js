@@ -10,9 +10,7 @@ var search = function(nums, target) {
     
     while (left <= right) {
         mid = parseInt((left + right) / 2);
-
         const num = nums[mid];
-        
         if (target > num) {
             left = mid + 1;
         } else if (target < num) {
