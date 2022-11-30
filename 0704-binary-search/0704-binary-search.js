@@ -19,5 +19,5 @@ var search = function(nums, target) {
             return mid;
         }
     }
-    return nums[mid] === target ? mid : -1; 
+    return -1; 
 };
