@@ -6,10 +6,10 @@
 var search = function(nums, target) {
     let left = 0;
     let right = nums.length - 1;
-    let mid = 0;
+    // let mid = 0;
     
     while (left <= right) {
-        mid = parseInt((left + right) / 2);
+        let mid = parseInt((left + right) / 2);
         const num = nums[mid];
         if (target > num) {
             left = mid + 1;
