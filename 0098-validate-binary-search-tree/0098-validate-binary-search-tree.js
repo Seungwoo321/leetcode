@@ -11,17 +11,18 @@
  * @return {boolean}
  */
 var isValidBST = function(root) {
-    let valid = true;
-    const inorder = (node, arr = []) => {
+
+    let prev = null
+    let valid = true
+    const inorder = (node) => {
         if (!node) return [];
-        inorder(node.left, arr);
-        if (arr.length && arr[arr.length - 1] >= node.val) {
+        inorder(node.left);
+        if (prev !== null && prev >= node.val) {
             valid = false;
         }
-        arr.push(node.val);
-        inorder(node.right, arr);
-        return arr;
+        prev = node.val;
+        inorder(node.right);
     }
     inorder(root);
-    return valid
+    return valid;
 };
