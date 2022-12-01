@@ -15,14 +15,14 @@ var isValidBST = function(root) {
     const stack = [];
     while (root || stack.length) {
         while (root) {
-            stack.unshift(root)
-            root = root.left
+            stack.unshift(root);
+            root = root.left;
         }
         root = stack.shift();
         if (prev !== null && prev >= root.val) {
             return false;
         }
-        prev = root.val
+        prev = root.val;
         if (root) {
             root = root.right;
         }
