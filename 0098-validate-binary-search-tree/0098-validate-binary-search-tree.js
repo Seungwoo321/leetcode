@@ -11,8 +11,8 @@
  * @return {boolean}
  */
 var isValidBST = function(root) {
-    let prev = null
-    let valid = true
+    let prev = null;
+    let valid = true;
     const inorder = (node) => {
         if (!node) return null;
         inorder(node.left);
