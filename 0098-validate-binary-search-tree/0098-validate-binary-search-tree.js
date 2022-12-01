@@ -24,4 +24,5 @@ var isValidBST = function(root) {
     }
     inorder(root);
     return valid;
+    
 };
