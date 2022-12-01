@@ -12,17 +12,21 @@
  */
 var isValidBST = function(root) {
     let prev = null;
-    let valid = true;
-    const inorder = (node) => {
-        if (!node) return null;
-        inorder(node.left);
-        if (prev !== null && prev >= node.val) {
-            valid = false;
+    const stack = [];
+    while (root || stack.length) {
+        while (root) {
+            stack.unshift(root)
+            root = root.left
         }
-        prev = node.val;
-        inorder(node.right);
+        root = stack.shift();
+        if (prev !== null && prev >= root.val) {
+            return false;
+        }
+        prev = root.val
+        if (root) {
+            root = root.right;
+        }
     }
-    inorder(root);
-    return valid;
+    return true;
     
 };
