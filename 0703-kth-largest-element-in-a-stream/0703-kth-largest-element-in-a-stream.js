@@ -4,8 +4,9 @@
  * @param {number[]} nums
  */
 var KthLargest = function(k, nums) {
-    this.nums = nums;
+    this.nums = [];
     this.k = k;
+    nums.forEach(n => this.add(n));
 };
 
 /** 
@@ -13,8 +14,23 @@ var KthLargest = function(k, nums) {
  * @return {number}
  */
 KthLargest.prototype.add = function(val) {
-    this.nums.push(val);
-    return this.nums.sort((a, b) => b - a)[this.k - 1];
+    const { nums, k } = this
+    let left = 0;
+    let right = nums.length;
+    
+    while (left < right) {
+        let mid = parseInt((left + right) / 2);
+        if (nums[mid] > val) {
+            left = mid + 1
+        } else {
+            right = mid;
+        }
+    }
+    nums.splice(left, 0, val);
+    if (nums.length > k) {
+        return nums[k - 1];
+    }
+    return nums[nums.length - 1];
 };
 
 /** 
