@@ -8,7 +8,10 @@ var numIslands = function(grid) {
             return 1;
         }
         grid[row][col] = '0';
-        return dfs(grid, row + 1, col) && dfs(grid, row - 1, col) && dfs(grid, row, col - 1) && dfs(grid, row, col + 1);
+        return dfs(grid, row + 1, col)
+            && dfs(grid, row - 1, col)
+            && dfs(grid, row, col - 1)
+            && dfs(grid, row, col + 1);
     }
     let lands = 0;
     for (let i = 0; i < grid.length; i ++) {
