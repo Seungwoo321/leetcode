@@ -13,9 +13,8 @@ var floodFill = function(image, sr, sc, color, curr = image[sr][sc]) {
         return image;
     }
     image[sr][sc] = color;
-    floodFill(image, sr - 1, sc, color, curr);
-    floodFill(image, sr + 1, sc, color, curr);
-    floodFill(image, sr, sc - 1, color, curr);
-    floodFill(image, sr, sc + 1, color, curr);
-    return image;
+    return floodFill(image, sr - 1, sc, color, curr) &&
+        floodFill(image, sr + 1, sc, color, curr) &&
+        floodFill(image, sr, sc - 1, color, curr) &&
+        floodFill(image, sr, sc + 1, color, curr);
 };
