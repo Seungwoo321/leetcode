@@ -13,8 +13,8 @@ var KthLargest = function(k, nums) {
  * @return {number}
  */
 KthLargest.prototype.add = function(val) {
-    this.nums.push(val)
-    return this.nums.sort((a, b) => b - a).slice(this.k - 1)[0]
+    this.nums.push(val);
+    return this.nums.sort((a, b) => b - a).slice(this.k - 1)[0];
 };
 
 /** 
