@@ -7,10 +7,8 @@
  */
 var floodFill = function(image, sr, sc, color, curr = image[sr][sc]) {
     if (
-        sr < 0 || 
-        sr > image.length - 1 ||
-        sc < 0 || 
-        sr > image[0].length - 1 ||
+        !(sr in image) ||
+        !(sc in image[0]) ||
         image[sr][sc] !== curr ||
         image[sr][sc] === color
     ) {
