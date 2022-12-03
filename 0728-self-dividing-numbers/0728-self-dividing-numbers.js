@@ -7,7 +7,7 @@ var selfDividingNumbers = function(left, right) {
     let nums = [];
     for (let i = left; i < right + 1; i ++) {
         let n = i;
-        let flag = i !== 0;
+        let flag = i > 0;
         while (n > 0) {
             if (i % (n % 10) !== 0) {
                 flag = false;
