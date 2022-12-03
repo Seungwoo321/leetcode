@@ -6,7 +6,16 @@
 var selfDividingNumbers = function(left, right) {
     let nums = [];
     for (let i = left; i < right + 1; i ++) {
-        if (i !== 0 && [...(i).toString()].every(n => i % n === 0)) {
+        let n = i;
+        let flag = i !== 0;
+        while (n > 0) {
+            if (i % (n % 10) !== 0) {
+                flag = false;
+                break;
+            }
+            n = parseInt(n / 10);
+        }
+        if (flag) {
             nums.push(i);
         }
     }
