@@ -1,6 +1,6 @@
 
 var MyHashSet = function() {
-    this.data = {};
+
 };
 
 /** 
@@ -8,9 +8,7 @@ var MyHashSet = function() {
  * @return {void}
  */
 MyHashSet.prototype.add = function(key) {
-    if (!this.contains(key)) {
-        this.data[key] = true
-    }
+    this[key] = null;
 };
 
 /** 
@@ -18,9 +16,7 @@ MyHashSet.prototype.add = function(key) {
  * @return {void}
  */
 MyHashSet.prototype.remove = function(key) {
-    if (this.contains(key)) {
-        delete this.data[key]
-    }
+    delete this[key];
 };
 
 /** 
@@ -28,7 +24,7 @@ MyHashSet.prototype.remove = function(key) {
  * @return {boolean}
  */
 MyHashSet.prototype.contains = function(key) {
-    return !!this.data[key]
+    return this.hasOwnProperty(key)
 };
 
 /** 
