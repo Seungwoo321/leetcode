@@ -1,6 +1,6 @@
 
 var MyHashMap = function() {
-    this.data = []
+    this.data = new Array(10 ^ 6)
 };
 
 /** 
