@@ -11,6 +11,5 @@ var isOneBitCharacter = function(bits) {
             p += 1;
         }
     }
-    console.log(p)
     return bits.length -1 === p;
 };
