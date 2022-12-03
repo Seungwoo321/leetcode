@@ -9,7 +9,7 @@ var MyHashMap = function() {
  * @return {void}
  */
 MyHashMap.prototype.put = function(key, value) {
-  this[key] = value;  
+    this[key] = value;  
 };
 
 /** 
