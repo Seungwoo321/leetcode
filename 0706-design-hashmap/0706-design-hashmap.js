@@ -1,6 +1,6 @@
 
 var MyHashMap = function() {
-    
+    this.data = {};
 };
 
 /** 
@@ -9,7 +9,7 @@ var MyHashMap = function() {
  * @return {void}
  */
 MyHashMap.prototype.put = function(key, value) {
-    this[key] = value;  
+    this.data[key] = value;  
 };
 
 /** 
@@ -17,7 +17,7 @@ MyHashMap.prototype.put = function(key, value) {
  * @return {number}
  */
 MyHashMap.prototype.get = function(key) {
-    return this[key] ?? -1;
+    return this.data[key] ?? -1;
 };
 
 /** 
@@ -25,7 +25,7 @@ MyHashMap.prototype.get = function(key) {
  * @return {void}
  */
 MyHashMap.prototype.remove = function(key) {
-    delete this[key];
+    delete this.data[key];
 };
 
 /** 
