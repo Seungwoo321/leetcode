@@ -3,12 +3,10 @@
  * @param {number} n
  * @return {number}
  */
-var uniquePaths = function(m, n) {
-    const grid = new Array(m).fill(1).map(v => new Array(n).fill(1));
-    for (let i = 1; i < m; i ++) {
-        for (let j = 1; j < n; j ++) {
-            grid[i][j] = grid[i - 1][j] + grid[i][j - 1];
-        }
-    }
-    return grid[m - 1][n - 1];
+var uniquePaths = function(m, n, memo = {}) {
+    if (m < 2 || n < 2) return 1;
+    if ((m in memo) && (n in memo[m])) return memo[m][n];
+    if (!memo[m]) memo[m] = {}
+    memo[m][n] = uniquePaths(m - 1, n, memo) + uniquePaths(m, n - 1, memo);
+    return memo[m][n];
 };
