@@ -4,14 +4,14 @@
  * @return {number[]}
  */
 var twoSum = function (nums, target) {
-    const hashTable = nums.reduce((prev, cur, i) => {
-        prev[target - cur] = i;
-        return prev;
-    }, {})    
+    const hashTable = new Map();
     for (let i = 0; i < nums.length; i ++) {
-        const targetIndex = hashTable[nums[i].toString()];
-        if (hashTable[nums[i].toString()] && targetIndex !== i) {
-            return [i, targetIndex];
+        hashTable.set(nums[i], i);
+    }
+    for (let i = 0; i < nums.length; i ++) {
+        const find = target - nums[i]
+        if (hashTable.has(find) && hashTable.get(find) !== i) {
+            return [i, hashTable.get(find)];
         }
     }
 };
