@@ -16,9 +16,9 @@ var backspaceCompare = function(s, t) {
             } else if (backspace) {
                 backspace --;
             } else {
-                answer += arr[i]
+                answer = arr[i] + answer;
             } 
-            i--;
+            i--; 
         }
         return answer;
     }
