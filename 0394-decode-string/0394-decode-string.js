@@ -6,7 +6,6 @@ var decodeString = function(s) {
     const stack = [];
     let currNum = 0;
     let currStr = '';
-    
     for (let i = 0; i < s.length; i ++) {
         let str = s[i];
         if (str == '[') {
@@ -24,6 +23,5 @@ var decodeString = function(s) {
             currStr += str;
         }
     }
-
     return currStr;
 };
