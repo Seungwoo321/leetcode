@@ -18,7 +18,7 @@ var decodeString = function(s) {
             let prevNum = stack.pop();
             let prevStr = stack.pop();
             currStr = prevStr + currStr.repeat(prevNum);
-        } else if (Number(str) >= 0 && Number(str) <= 9) {
+        } else if (str >= '0' && str <= '9') {
             currNum = currNum * 10 + Number(str);
         } else {
             currStr += str;
