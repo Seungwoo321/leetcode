@@ -4,8 +4,6 @@
  * @return {boolean}
  */
 var backspaceCompare = function(s, t) {
-    
-    
     const build = (arr) => {
         let answer = ''
         let backspace = 0;
