@@ -10,8 +10,13 @@ var lastStoneWeight = function(stones) {
         const secondStone = stones.shift();
         
         if (firstStone !== secondStone) {
-            stones.push(firstStone - secondStone);
-            stones.sort((a, b) => b - a);
+            const newStone = firstStone - secondStone;
+            stones.push(newStone);
+            if (newStone > stones[stones.length - 2]) {
+                stones.sort((a, b) => b - a);
+            }
+            
+            
         }
     }
     return Math.abs(stones[0] - (stones[1] || 0));
