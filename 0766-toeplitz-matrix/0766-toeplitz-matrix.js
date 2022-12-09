@@ -8,9 +8,7 @@ var isToeplitzMatrix = function(matrix) {
 
     for (let i = 1; i < m; i ++) {
         for (let j = 1; j < n; j ++) {
-            if (matrix[i][j] === matrix[i - 1][j - 1]) {
-                // arr[j - 1] = matrix[i][j - 1];
-            } else {
+            if (matrix[i][j] !== matrix[i - 1][j - 1]) {
                 return false;
             }
            
