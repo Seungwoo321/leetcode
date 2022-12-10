@@ -14,7 +14,6 @@ var minDiffInBST = function(root) {
     let minDiff = Infinity;
     let prev = -1;
     const inOrder = (node) => {
-        if (node === null) return node;
         if (node.left) inOrder(node.left);
         if (prev >= 0) minDiff = Math.min(node.val - prev, minDiff);
         prev = node.val;
