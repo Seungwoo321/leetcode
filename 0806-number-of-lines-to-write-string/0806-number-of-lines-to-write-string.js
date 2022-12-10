@@ -4,14 +4,14 @@
  * @return {number[]}
  */
 var numberOfLines = function(widths, s) {
-    let pixels = 0;
-    let line = 1;
-    for (let i = 0; i < s.length; i ++) {
-        pixels += widths[(s[i].charCodeAt() - 97) % 26];
-        if (pixels > 100) {
-            pixels = widths[(s[i].charCodeAt() - 97) % 26];
-            line ++;
+    return [...s].reduce((acc, cur) => {
+        const width = widths[(cur.charCodeAt() - 97) % 26];
+        acc[1] += width;
+        if (acc[1] > 100) {
+            acc[0]++;
+            acc[1] = width;
         }
-    }
-    return [line, pixels];
+        
+        return acc;
+    }, [1, 0]);
 };
