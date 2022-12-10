@@ -10,10 +10,7 @@ var rotateString = function(s, goal) {
     let i = 0;
     while (i < s.length) {
         s.push(s.shift());
-        if (
-            s[0] === goal[0] && 
-            s[s.length - 1] === goal[goal.length - 1]
-        ) {
+        if (s[0] === goal[0]) {
             if (s.join('') === goal) {
                 return true;
             }
