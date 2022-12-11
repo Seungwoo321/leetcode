@@ -5,13 +5,12 @@
 var largeGroupPositions = function(s) {
     const groups = [];
     let start = 0;
-    for (let i = 1; i < s.length + 1; i ++) {
-        if (s[start] !== s[i]) {
-            let end = i - 1;
-            if (end - start >= 2) {
-                groups.push([start, end]);
+    for (let end = 1; end < s.length + 1; end ++) {
+        if (s[start] !== s[end]) {
+            if (end - start >= 3) {
+                groups.push([start, end - 1]);
             }
-            start = i;
+            start = end;
         }
     }
     return groups;
