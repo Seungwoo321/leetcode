@@ -14,5 +14,5 @@ var largeGroupPositions = function(s) {
             start = i;
         }
     }
-    return groups
+    return groups;
 };
