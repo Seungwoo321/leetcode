@@ -10,5 +10,5 @@ var toGoatLatin = function(sentence) {
                 str + 'ma' :
                 str.substring(1) + str[0] + 'ma'
         ) + 'a'.repeat(i + 1);
-    }).join(' ')
+    }).join(' ');
 };
