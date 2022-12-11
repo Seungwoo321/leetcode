@@ -4,15 +4,15 @@
  * @return {number[]}
  */
 var shortestToChar = function(s, c) {
-    let first = s.indexOf(c);
-    let next = first;
+    let prev = s.indexOf(c);
+    let next = prev;
     const distance = [];
     for (let i = 0; i < s.length; i ++) {
         if (s[i] === c) {
-            first = i;
-            next = s.indexOf(c, first + 1);
+            prev = i;
+            next = s.indexOf(c, prev + 1);
         }
-        distance.push(Math.min(Math.abs(first - i), Math.abs(next - i)));
+        distance.push(Math.min(Math.abs(prev - i), Math.abs(next - i)));
     }
     return distance;
 };
