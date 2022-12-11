@@ -5,15 +5,15 @@
  */
 var mostCommonWord = function(paragraph, banned) {
     const bannedSet = new Set(banned);
-    const freqMap = new Map();
-    let freqStr = ''
-    let freqCount = '';
+    const countMap = new Map();
+    let maxFreqStr = ''
+    let maxFreq = 0;
     paragraph.replaceAll(/([!?',;.])/g, ' ').toLowerCase().split(' ').forEach(str => {
-        freqMap.set(str, (freqMap.get(str) || 0) + 1);
-        if (str && !bannedSet.has(str) && freqMap.get(str) > freqCount) {
-            freqCount = freqMap.get(str);
-            freqStr = str; 
+        countMap.set(str, (countMap.get(str) || 0) + 1);
+        if (str && !bannedSet.has(str) && countMap.get(str) > maxFreq) {
+            maxFreq = countMap.get(str);
+            maxFreqStr = str; 
         }
     });
-    return freqStr;
+    return maxFreqStr;
 };
