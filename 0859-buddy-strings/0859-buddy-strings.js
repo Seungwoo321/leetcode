@@ -5,7 +5,6 @@
  */
 var buddyStrings = function(s, goal) {
     if (s.length !== goal.length) return false;
-    
     let diff = []
     for (let i = 0; i < s.length; i ++) {
         if (s[i] !== goal[i]) {
