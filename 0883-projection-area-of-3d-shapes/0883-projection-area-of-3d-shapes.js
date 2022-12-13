@@ -3,8 +3,6 @@
  * @return {number}
  */
 var projectionArea = function(grid) {
-    
-
     let answer = 0;
     for (let i = 0; i < grid.length; i ++) {
         let x = 0;
