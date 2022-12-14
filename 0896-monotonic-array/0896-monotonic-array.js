@@ -3,23 +3,17 @@
  * @return {boolean}
  */
 var isMonotonic = function(nums) {
-    let increasing = false;
-    let decreasing = false;
- 
-    for (let i = 1; i < nums.length; i ++) {
-        let isIncreasing = nums[i] > nums[i - 1];
-        let isDecreasing = nums[i] < nums[i - 1];
-        if (!increasing && !decreasing) {
-            increasing = isIncreasing;
-            decreasing = isDecreasing;
+    const increasing = (nums) => {
+        for (let i = 1; i < nums.length; i ++) {
+            if (nums[i] < nums[i - 1]) return false;
         }
-        if (increasing && isDecreasing) {
-            return false;
+        return true;
+    }
+    const decreasing = (nums) => {
+        for (let i = 1; i < nums.length; i ++) {
+            if (nums[i] > nums[i - 1]) return false;
         }
-        if (decreasing && isIncreasing) {
-            return false;
-        }
-    }        
-
-    return true;
+        return true;
+    }
+    return increasing(nums) || decreasing(nums);
 };
