@@ -5,10 +5,9 @@
  */
 var fairCandySwap = function(aliceSizes, bobSizes) {
     const sum = (acc, cur) => acc + cur
-    const findDiff = (aliceSizes.reduce(sum, 0) - bobSizes.reduce(sum, 0)) / 2;
-    aliceSizes.sort((a, b) => a - b);
-    bobSizes.sort((a, b) => a - b);
+    const findDiff = (bobSizes.reduce(sum, 0) - aliceSizes.reduce(sum, 0)) / 2;
 
+    bobSizes.sort((a, b) => a - b);
 
     const binarySearch = (target, arr) => {
         let left = 0;
@@ -26,10 +25,10 @@ var fairCandySwap = function(aliceSizes, bobSizes) {
         return -1
     }
     
-    for (let j = 0; j < bobSizes.length; j ++) {
+    for (let i = 0; i < aliceSizes.length; i ++) {
 
-        let i = binarySearch(findDiff + bobSizes[j], aliceSizes);
-        if (i > -1) {
+        let j = binarySearch(findDiff + aliceSizes[i], bobSizes);
+        if (j > -1) {
             return [aliceSizes[i], bobSizes[j]]
         }
     
