@@ -10,10 +10,10 @@
  * @param {TreeNode} root
  * @return {TreeNode}
  */
-var increasingBST = function(root, tail = null) {
-	if (!root) return tail;
-	const res = increasingBST(root.left, root);
-	root.left = null;
-	root.right = increasingBST(root.right, tail);
-	return res;
+var increasingBST = function(root, head = null) {
+    if (!root) return head;
+    root.right = increasingBST(root.right, head);
+    const left = root.left;
+    root.left = null;
+    return increasingBST(left, root);
 };
