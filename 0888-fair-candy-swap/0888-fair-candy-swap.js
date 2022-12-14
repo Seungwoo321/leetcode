@@ -6,8 +6,6 @@
 var fairCandySwap = function(aliceSizes, bobSizes) {
     const sum = (acc, cur) => acc + cur
     const findDiff = (aliceSizes.reduce(sum, 0) - bobSizes.reduce(sum, 0)) / 2;
-    aliceSizes.sort((a, b) => a - b);
-    bobSizes.sort((a, b) => a - b);
     
     const aliceSet = new Set(aliceSizes);
     
