@@ -3,5 +3,14 @@
  * @return {number[]}
  */
 var sortArrayByParity = function(nums) {
-    return nums.sort((a, b) => a % 2 === 1 ? 1 : -1);
+    let i = 0;
+    let j = nums.length - 1;
+    while (i < j) {
+        if (nums[i] % 2 > nums[j] % 2) {
+            [nums[i], nums[j]] = [nums[j], nums[i]];
+        }
+        if (nums[i] % 2 === 0) i ++;
+        if (nums[j] % 2 === 1) j --;
+    }
+    return nums;
 };
