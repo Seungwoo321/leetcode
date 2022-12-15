@@ -4,9 +4,14 @@
  */
 var hasGroupsSizeX = function(deck) {
     const gcd = (a, b) => b > 0 ? gcd(b, a % b) : a;
-    const count = new Map();
+    const countMap = new Map();
     let res = 0;
-    deck.forEach(n => count.set(n, (count.get(n) || 0) + 1));
-    count.forEach(c => res = gcd(c, res));
+    for (let i in deck) {
+        countMap.set(deck[i], (countMap.get(deck[i]) || 0) + 1);
+    }
+    countMap.forEach(count => {
+        res = gcd(count, res);
+    });
+    
     return res > 1;
 };
