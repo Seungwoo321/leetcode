@@ -11,7 +11,6 @@ var isLongPressedName = function(name, typed) {
         if (name[p1] === typed[p2]) p1 ++, p2++;
         else if (name[p1 - 1] === typed[p2]) p2 ++;
         else return false;
-
     }
-    return p1 === name.length && p2 === typed.length;
+    return p1 === name.length;
 };
