@@ -3,14 +3,14 @@
  * @return {number[]}
  */
 var diStringMatch = function(s) {
-    const nums = [new Array(s.length).fill(0)];
     let I = 0;
     let D = s.length;
+    let nums = [];
     for (let i = 0; i < s.length; i ++) {
         if (s[i] === 'I') {
-            nums[i] = I++;
+            nums.push(I++);
         } else {
-            nums[i] = D--;
+            nums.push(D--);
         }
     }
     nums.push(I);
