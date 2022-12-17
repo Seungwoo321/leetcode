@@ -13,9 +13,10 @@
  * @return {number}
  */
 var rangeSumBST = function(root, low, high) {
+    if (!root) return 0;
     return (
-        (root?.left ? rangeSumBST(root.left, low, high) : 0) +
+        rangeSumBST(root.left, low, high) + 
         (root.val >= low  && root.val <= high ? root.val : 0) +
-        (root?.right ? rangeSumBST(root.right, low, high) : 0)
+        rangeSumBST(root.right, low, high)
     );
 };
