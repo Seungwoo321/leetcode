@@ -1,10 +1,6 @@
 
 var RecentCounter = function() {
     this.queue = [];
-    this.range = (t) => {
-        const limit = t - 3000;
-        return () => [Math.min(limit, t), Math.max(limit, t)]
-    }
 };
 
 /** 
@@ -13,8 +9,7 @@ var RecentCounter = function() {
  */
 RecentCounter.prototype.ping = function(t) {
     this.queue.push(t);
-    const range = this.range(t)();
-    this.queue = this.queue.slice(this.queue.findIndex(q => q >= range[0]))
+    this.queue = this.queue.slice(this.queue.findIndex(q => q >= Math.min(t - 3000, t)));
     return this.queue.length;
 };
 
