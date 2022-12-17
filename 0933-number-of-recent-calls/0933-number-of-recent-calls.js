@@ -12,9 +12,10 @@ var RecentCounter = function() {
  * @return {number}
  */
 RecentCounter.prototype.ping = function(t) {
-    const range = this.range(t)();
     this.queue.push(t);
-    this.queue = this.queue.filter(q => q >= range[0] && q <= range[1]);
+    const range = this.range(t)();
+    const firstIndex = this.queue.findIndex(q => q >= range[0]);
+    this.queue = this.queue.slice(firstIndex).filter(q => q >= range[0] && q <= range[1]);
     return this.queue.length;
 };
 
