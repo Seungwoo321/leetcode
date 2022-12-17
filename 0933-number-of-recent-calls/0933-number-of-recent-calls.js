@@ -14,7 +14,8 @@ var RecentCounter = function() {
 RecentCounter.prototype.ping = function(t) {
     const range = this.range(t)();
     this.queue.push(t);
-    return this.queue.filter(q => q >= range[0] && q <= range[1]).length;
+    this.queue = this.queue.filter(q => q >= range[0] && q <= range[1]);
+    return this.queue.length;
 };
 
 /** 
