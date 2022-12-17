@@ -14,8 +14,7 @@ var RecentCounter = function() {
 RecentCounter.prototype.ping = function(t) {
     this.queue.push(t);
     const range = this.range(t)();
-    const firstIndex = this.queue.findIndex(q => q >= range[0]);
-    this.queue = this.queue.slice(firstIndex).filter(q => q >= range[0] && q <= range[1]);
+    this.queue = this.queue.filter(q => q >= range[0] && q <= range[1]);
     return this.queue.length;
 };
 
