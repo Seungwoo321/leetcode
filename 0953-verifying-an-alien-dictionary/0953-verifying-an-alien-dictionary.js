@@ -14,6 +14,7 @@ var isAlienSorted = function(words, order) {
         for (let j = 0; j < Math.max(a.length, b.length); j++) {
             const aIndex = mapping.get(a[j]);
             const bIndex = mapping.get(b[j]);
+            if (aIndex === bIndex) continue;
             if (aIndex < bIndex) break;
             if (aIndex > bIndex) return false;
         }
