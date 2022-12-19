@@ -4,13 +4,12 @@
  * @return {number}
  */
 var findJudge = function(n, trust) {
-    if (trust.length === 1) return trust[0][1];
-    const people = new Array(n).fill(0);
-    const judges = new Array(n).fill(0);
-    let label = -1;
-    for (let i = 0; i < trust.length; i ++) {
-        people[trust[i][0] - 1] += 1;
-        judges[trust[i][1] - 1] += 1;
+    if (n === 1) return 1;
+    const arr = new Array(n + 1).fill(0);
+    for (let [people, judge] of trust) {
+        arr[people] --;
+        arr[judge] ++;
     }
-    return (people.some(p => p === 0) && judges.findIndex(j => n - 1 === j) + 1) || -1
+    
+    return arr.findIndex(m => m + 1 === n);
 };
