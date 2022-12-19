@@ -3,33 +3,38 @@
  * @return {number}
  */
 var numRookCaptures = function(board) {
-    const y = board.findIndex(row => row.indexOf('R') > -1);
-    const x = board[y].indexOf('R');
+    let [x, y] = [0, 0];
+    for (let row in board) {
+        if (board[row].indexOf('R') > -1) {
+            [x, y] = [row, board[row].indexOf('R')];
+            break;
+        }
+    }
     let captures = [0, 0];  
     let i = 0;
     let j = 0;
-    while (i < y) {
-        if (board[i][x] === 'p' || board[i][x] === 'B') {
-            captures[0] = +(board[i][x] === 'p');
+    while (i < x) {
+        if (board[i][y] === 'p' || board[i][y] === 'B') {
+            captures[0] = +(board[i][y] === 'p');
         }
         i ++;
     }
     while (i < 8) {
-        if (board[i][x] === 'p' || board[i][x] === 'B') {
-            captures[0] += +(board[i][x] === 'p');
+        if (board[i][y] === 'p' || board[i][y] === 'B') {
+            captures[0] += +(board[i][y] === 'p');
             break;
         }
         i ++;
     }
-    while (j < x) {
-        if (board[y][j] === 'p' || board[y][j] === 'B') {
-            captures[1] = +(board[y][j] === 'p');
+    while (j < y) {
+        if (board[x][j] === 'p' || board[x][j] === 'B') {
+            captures[1] = +(board[x][j] === 'p');
         }
         j ++;
     }
     while (j < 8) {
-        if (board[y][j] === 'p' || board[y][j] === 'B') {
-            captures[1] += +(board[y][j] === 'p');
+        if (board[x][j] === 'p' || board[x][j] === 'B') {
+            captures[1] += +(board[x][j] === 'p');
             break;
         }
         j ++;
