@@ -18,5 +18,5 @@ var canThreePartsEqualSum = function(arr) {
         j --;
         if (sum / 3 === right) break;
     }
-    return i <= j && sum - left - right === left;
+    return i < j + 1 && sum - left - right === left;
 };
