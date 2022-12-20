@@ -3,20 +3,23 @@
  * @return {boolean}
  */
 var canThreePartsEqualSum = function(arr) {
-    let i = 0;
-    let j = arr.length - 1;
-    let sum = arr.reduce((acc, cur) => acc + cur, 0);
-    let left = 0;
-    let right = 0;
-    while (i < arr.length) {
-        left += arr[i];
-        i ++;
-        if (sum / 3 === left) break;
+    const sum = arr.reduce((acc, cur) => acc + cur, 0);
+    const avg = sum / 3;
+    if (sum % 3 !== 0) return false;
+    let i = 1;
+    let j = arr.length - 2;
+    let left = arr[0];
+    let right = arr[arr.length - 1];
+    while (i < j) {
+        if (i < j && left !== avg) {
+            left += arr[i];
+            i ++;
+        }
+        if (i < j && right !== avg) {
+            right += arr[j];
+            j --;
+        }
+        if (left === avg && right === avg) return true;
     }
-    while (j > 0) {
-        right += arr[j]
-        j --;
-        if (sum / 3 === right) break;
-    }
-    return i < j + 1 && sum - left - right === left;
+    return false;
 };
