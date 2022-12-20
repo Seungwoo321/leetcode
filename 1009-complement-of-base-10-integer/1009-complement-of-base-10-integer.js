@@ -3,5 +3,8 @@
  * @return {number}
  */
 var bitwiseComplement = function(n) {
-    return parseInt( [...n.toString(2)].map(m => m ^ 1).join(''), 2);
+    if (n === 0) return 1;
+    let bit = Math.log2(n) + 1;
+    let mask = (1 << bit) - 1;
+    return n ^ mask;
 };
