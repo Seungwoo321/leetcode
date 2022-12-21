@@ -4,19 +4,21 @@
  */
 var removeOuterParentheses = function(s) {
     let answer = '';
-    let tmp = '';
+    let opend = 0;
     const stack = [];
     [...s].forEach(p => {
-        tmp += p;
         if (p === '(') {
-            stack.unshift(p);
-        } else {
-            stack.shift();
+            if (opend > 0) {
+                answer += p;
+            }
+            opend ++;
         }
-        if (stack.length === 0) {
-            answer += tmp.substring(1, tmp.length - 1)
-            tmp = '';
-        }  
+        if (p === ')') {
+            opend --; 
+            if (opend > 0) {
+                answer += p;
+            }
+        }
     })
     return answer;
 };
