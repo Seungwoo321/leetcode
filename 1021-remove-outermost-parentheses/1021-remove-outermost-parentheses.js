@@ -5,13 +5,13 @@
 var removeOuterParentheses = function(s) {
     let answer = '';
     let opend = 0;
-    [...s].forEach(p => {
-        if (p === '(' && opend++ > 0) {
-            answer += p;
+    for (let i = 0; i < s.length; i ++) {
+        if (s[i] === '(' && opend++ > 0) {
+            answer += s[i];
         }
-        if (p === ')' && --opend > 0) {
-             answer += p;
+        if (s[i] === ')' && --opend > 0) {
+             answer += s[i];
         }
-    })
+    }
     return answer;
 };
