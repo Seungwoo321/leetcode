@@ -7,11 +7,11 @@
  */
 var allCellsDistOrder = function(rows, cols, rCenter, cCenter) {
     const arr = [];
+    const distance = ([x, y]) => Math.abs(x - rCenter) + Math.abs(y - cCenter);
     for (let i = 0; i < rows; i ++) {
         for (let j = 0; j < cols; j ++) {
-            arr.push([[i, j], Math.abs(i - rCenter) + Math.abs(j - cCenter)]);
+            arr.push([i, j]);
         }
     }
-    arr.sort((a, b) => a[1] - b[1])
-    return arr.map(n => n[0]);
+    return arr.sort((a, b) => distance(a) - distance(b));
 };
