@@ -3,6 +3,5 @@
  * @return {number}
  */
 var heightChecker = function(heights) {
-    const expected = heights.slice().sort((a, b) => a - b);
-    return heights.filter((h, i) => expected[i] !== h).length;
+    return [...heights].sort((a, b) => a - b).filter((e, i) => heights[i] !== e).length;
 };
