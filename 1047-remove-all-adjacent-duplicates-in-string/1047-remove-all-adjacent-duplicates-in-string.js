@@ -5,11 +5,11 @@
 var removeDuplicates = function(s) {
     const stack = [];
     for (let i = 0; i < s.length; i ++) {
-        if (stack[0] === s[i]) {
-            stack.shift();
+        if (stack[stack.length - 1] === s[i]) {
+            stack.pop();
         } else {
-            stack.unshift(s[i]);
+            stack.push(s[i]);
         }
     }
-    return stack.reverse().join('');
+    return stack.join('');
 };
