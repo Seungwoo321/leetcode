@@ -4,8 +4,13 @@
  * @return {number}
  */
 var countCharacters = function(words, chars) {
-    return words.reduce((count, word, i) => {
-        for (let c of [...chars]) word = word.replace(c, '');
-        return count + (word.length ? 0 : words[i].length);
+    const mapping = [...chars].reduce((acc, cur) => acc.set(cur, (acc.get(cur) || 0) + 1), new Map);
+    return words.reduce((count, word) => {
+        const tmp = new Map();
+        count += [...word].every(key => {
+            tmp.set(key, (tmp.get(key) || 0) + 1);
+            return mapping.get(key) >= tmp.get(key);
+        }) ? word.length : 0;
+        return count
     }, 0);
 };
