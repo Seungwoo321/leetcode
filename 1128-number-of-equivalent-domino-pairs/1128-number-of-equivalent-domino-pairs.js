@@ -3,19 +3,15 @@
  * @return {number}
  */
 var numEquivDominoPairs = function(dominoes) {
-    let count = 0;
-    const hashTable = dominoes.reduce((map, [a, b]) => {
+    return dominoes.reduce(([map, count], [a, b]) => {
         const key = `${Math.min(a, b)},${Math.max(a, b)}`;
         if (map.has(key)) {
-            let [l, c]= map.get(key)
-            map.set(key, [l + 1, c + l]);
+            let c = map.get(key);
+            count += c;
+            map.set(key, c + 1);
         } else {
-            map.set(key, [1, 0]);
+            map.set(key, 1);
         }
-        return map;
-    }, new Map());
-    hashTable.forEach((value) => {
-        if (value[1] > 0) count += value[1];
-    });
-    return count;
+        return [map, count];
+    }, [new Map(), 0])[1];
 };
