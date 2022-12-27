@@ -4,12 +4,13 @@
  */
 var checkStraightLine = function(coordinates) {
     if (coordinates.length === 2) return true;
-    coordinates.sort((a, b) => a[1] - b[1]);
-    let gradient = (coordinates[1][1] - coordinates[0][1]) / (coordinates[1][0] - coordinates[0][0]);
-    for (let i = 1; i < coordinates.length - 1; i ++) {
-        const [x1, y1] = coordinates[i];
-        const [x2, y2] = coordinates[i + 1];
-        if (gradient !== (y2 - y1) / (x2 - x1)) {
+    let [[x0, y0], [x1, y1]] = coordinates;
+    let dy = y1 - y0;
+    let dx = x1 - x0;
+    for (let i = 0; i < coordinates.length; i ++) {
+        const [x, y] = coordinates[i];
+
+        if (dx * (y - y1) !== dy * (x - x1)) {
             return false;
         }
     }
