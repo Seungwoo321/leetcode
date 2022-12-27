@@ -3,10 +3,6 @@
  * @return {boolean}
  */
 var uniqueOccurrences = function(arr) {
-    const freq = Object.values(arr.reduce((acc, cur) => {
-        acc[cur] = (acc[cur] || 0) + 1;
-        return acc;
-    }, {}));
-    return freq.length === new Set(freq).size;
-
+    const freq = arr.reduce((acc, cur) => acc.set(cur, (acc.get(cur) || 0) + 1), new Map());
+    return freq.size === new Set(freq.values()).size;
 };
