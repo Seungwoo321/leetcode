@@ -7,14 +7,8 @@ var balancedStringSplit = function(s) {
     let char = s[0];
     let split = 0;
     for (let i = 1; i < s.length; i ++) {
-        if (char === s[i]) {
-            count ++;
-        } else {
-            count --;
-        }
-        if (count === 0) {
-            split++;
-        }
+        char === s[i] ? count ++ : count --;
+        if (count === 0) split++;
     }
     return split;
 };
