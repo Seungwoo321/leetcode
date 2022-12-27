@@ -5,21 +5,16 @@
  * @return {number}
  */
 var oddCells = function(m, n, indices) {
-    const matrix = new Array(m).fill(0).map(_ => new Array(n).fill(0));
-    let odd = 0;
-    for (let i = 0; i < matrix.length; i ++) {
-        for (let j = 0; j < matrix[0].length; j ++) {
-            for (let k = 0; k < indices.length; k ++) {
-                const [r, c] = indices[k];
-                if (i === r) {
-                    matrix[r][j] ++;
-                }
-                if (j === c) {
-                    matrix[i][c] ++;
-                }
-            }
-            odd += matrix[i][j] % 2 === 1;
-        }        
+    const rows = new Array(m).fill(0);
+    const cols = new Array(n).fill(0);
+    
+    for (let i = 0; i < indices.length; i ++) {
+        const [r, c] = indices[i];
+        rows[r] ^= 1;
+        cols[c] ^= 1;
     }
-    return odd;
+    const rowOdd = rows.filter(r => r).length;
+    const colOdd = cols.filter(c => c).length;
+
+    return (m - rowOdd) * colOdd + (n - colOdd) * rowOdd;
 };
