@@ -7,11 +7,12 @@ var minimumAbsDifference = function(arr) {
     let min = arr[1] - arr[0];
     let res = [];
     for (let i = 0; i < arr.length - 1; i ++) {
-        if (min > arr[i + 1] - arr[i]) {
-            min = arr[i + 1] - arr[i];
+        const diff = arr[i + 1] - arr[i];
+        if (min > diff) {
+            min = diff;
             res = [];
         }
-        if (arr[i + 1] - arr[i] === min) {
+        if (diff === min) {
             res.push([arr[i], arr[i + 1]]);
         } 
     }
