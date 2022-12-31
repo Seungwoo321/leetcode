@@ -3,9 +3,13 @@
  * @return {number[]}
  */
 var sortByBits = function(arr) {
-    return arr.sort((a, b) => {
-        const a1 = [...a.toString(2)].filter(v => v === '1').length;
-        const b1 = [...b.toString(2)].filter(v => v === '1').length;
-        return a1 - b1 || a - b;
-    });
+    const bitCount = (n) => {
+        let count = 0;
+        while (n > 0) {
+            count += n & 1;
+            n >>= 1;
+        }
+        return count;
+    }    
+    return arr.sort((a, b) => bitCount(a) - bitCount(b) || a - b); 
 };
