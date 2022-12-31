@@ -3,5 +3,14 @@
  * @return {number[]}
  */
 var sortByBits = function(arr) {
-    return arr.map(n => [n, [...n.toString(2)].filter(v => v === '1').length]).sort((a, b) => a[1] === b[1] ? a[0] - b[0] : a[1] - b[1]).map(n => n[0]);
+    const numberOf1Bits = (n) => {
+        let count = 0;
+        while (n > 0) {
+            count += n & 1;
+            n >>= 1;
+        }
+        return count;
+    }    
+    return arr.sort((a, b) => numberOf1Bits(a) - numberOf1Bits(b) || a - b); 
+
 };
