@@ -12,12 +12,12 @@ var sortString = function(s) {
         let left = '';
         let right = '';
         for (let i = 0; i < counts.length; i ++) {
-            if (counts[i] > 0) {
+            if (counts[i]) {
                 left = left + String.fromCharCode(i + 97);
                 counts[i]--;
             }
             if (counts[i]) {
-                right =  String.fromCharCode(i + 97) + right;
+                right = String.fromCharCode(i + 97) + right;
                 counts[i]--;
             }
         }
