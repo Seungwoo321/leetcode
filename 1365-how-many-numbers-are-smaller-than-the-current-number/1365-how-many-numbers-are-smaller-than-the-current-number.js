@@ -3,8 +3,9 @@
  * @return {number[]}
  */
 var smallerNumbersThanCurrent = function(nums) {
-    const sorted = nums.slice().sort((a, b) => a - b).reduce((acc, cur, i) => {
-        return acc.has(cur) ? acc : acc.set(cur, i);
-    }, new Map());
-    return nums.map(n => sorted.get(n));
+    const max = Math.max(...nums)
+    const counts = new Array(max + 1).fill(0)
+    nums.forEach(n => counts[n]++);
+    counts.forEach((_, i) => counts[i] += (counts[i - 1] || 0));
+    return nums.map((n, i) => counts[n - 1] || 0);
 };
