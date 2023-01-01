@@ -3,12 +3,8 @@
  * @return {number[]}
  */
 var smallerNumbersThanCurrent = function(nums) {
-    const count = new Map();
-    new Set(nums).forEach((n) => {
-        nums.forEach(m => {
-            if (!count.has(n)) count.set(n, 0)
-            if (m < n) count.set(n, count.get(n) + 1);
-        });
-    });
-    return nums.map(n => count.get(n));
+    const sorted = nums.slice().sort((a, b) => a - b).reduce((acc, cur, i) => {
+        return acc.has(cur) ? acc : acc.set(cur, i);
+    }, new Map());
+    return nums.map(n => sorted.get(n));
 };
