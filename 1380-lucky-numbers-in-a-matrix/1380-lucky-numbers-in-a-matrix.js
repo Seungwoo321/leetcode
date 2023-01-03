@@ -17,5 +17,5 @@ var luckyNumbers  = function(matrix) {
             }
         }
     } 
-    return rows.filter(min => cols.includes(min));
+    return rows.filter(r => cols.includes(r));
 };
