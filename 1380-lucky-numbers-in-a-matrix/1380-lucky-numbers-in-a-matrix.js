@@ -3,8 +3,19 @@
  * @return {number[]}
  */
 var luckyNumbers  = function(matrix) {
-    const rowMin = matrix.map(row => Math.min(...row));
-    const colMax = new Array(matrix[0].length).fill(0)
-        .map((_, i) => Math.max.apply(null, matrix.map((__, j, arr) => arr[j][i])));    
-    return rowMin.filter(min => colMax.includes(min));
+    const m = matrix.length;
+    const n = matrix[0].length;
+    const rows = new Array(m).fill(1000000);
+    const cols = new Array(n).fill(1);
+    for (let i = 0; i < m; i ++) {
+        for (let j = 0; j < n; j ++) {
+            if (rows[i] > matrix[i][j]) {
+                rows[i] = matrix[i][j];
+            }
+            if (cols[j] < matrix[i][j]) {
+                cols[j] = matrix[i][j];
+            }
+        }
+    } 
+    return rows.filter(min => cols.includes(min));
 };
