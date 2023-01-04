@@ -4,16 +4,10 @@
  * @return {number[]}
  */
 var createTargetArray = function(nums, index) {
-    const target = new Array(nums.length).fill(-1);
-    console.log(target)
+    let target = new Array(nums.length).fill(0);
     for (let i = 0; i < nums.length; i ++) {
-        if (target[index[i]] > -1) {            
-            for (let j = nums.length - 1; j > index[i]; j --) {
-                target[j] = target[j - 1];
-            } 
-        }
-        target[index[i]] = nums[i];
+        target = [...target.slice(0, index[i]), nums[i], ...target.slice(index[i])]
     }
-    return target;
+    return target.slice(0, nums.length);
     
 };
