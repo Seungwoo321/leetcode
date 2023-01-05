@@ -10,7 +10,6 @@ var minSubsequence = function(nums) {
         if (sum > total - sum) break;
         sum += nums[i];
         arr.push(nums[i]);
-       
     }
     return arr;
 };
