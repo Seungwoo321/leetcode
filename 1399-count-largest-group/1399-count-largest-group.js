@@ -18,7 +18,5 @@ var countLargestGroup = function(n) {
         counts[digitSum(i)]++
         max = Math.max(max, counts[digitSum(i)]);
     }
-    console.log(counts);
-    console.log(max)
     return counts.filter(c => c === max).length;
 };
