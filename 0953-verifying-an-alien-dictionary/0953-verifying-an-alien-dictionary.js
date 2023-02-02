@@ -3,21 +3,26 @@
  * @param {string} order
  * @return {boolean}
  */
-var isAlienSorted = function(words, order) {
-    let mapping = new Map([[undefined, -1]]);
+function isAlienSorted(words, order) {
+    const map = {};
     for (let i = 0; i < order.length; i++) {
-        mapping.set(order[i], i);
+        map[order[i]] = i;
     }
     for (let i = 1; i < words.length; i++) {
-        let a = words[i - 1];
-        let b = words[i];
-        for (let j = 0; j < a.length; j++) {
-            const aIndex = mapping.get(a[j]);
-            const bIndex = mapping.get(b[j]);
-            if (aIndex === bIndex) continue;
-            if (aIndex < bIndex) break;
-            if (aIndex > bIndex) return false;
+        const word1 = words[i - 1];
+        const word2 = words[i];
+        let j = 0;
+        while (j < word1.length && j < word2.length) {
+            if (map[word1[j]] < map[word2[j]]) {
+                break;
+            } else if (map[word1[j]] > map[word2[j]]) {
+                return false;
+            }
+            j++;
+        }
+        if (j === word2.length && word1.length > word2.length) {
+            return false;
         }
     }
     return true;
-};
+}
